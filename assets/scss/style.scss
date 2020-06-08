@@ -1,0 +1,100 @@
+@import "reset";
+@import "variable";
+@import "mixin";
+@import "placeholder";
+
+body {
+    font-size: 1rem;
+    font-family: $font;
+    @include tipo();
+
+    nav.nav{
+        .nav-left{
+            @include flex($jc:space-between);
+        }
+        background-color: $azulOsc;
+        padding: 15px 10%;
+        a{
+            color:$blanco;
+            margin:5px;
+            margin-right: 5vh;
+            padding:5px;
+            &:hover{
+                color:$principal;
+            }
+        }
+    }
+
+}
+
+h1{
+    font-size:1.7rem;
+    padding:0;
+    margin:0;
+}
+
+.boton{
+    font-size: 20px;
+    color:$blanco;
+    border:none;
+    padding: 5px 25px;
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(191,180,143,1) 100%);
+}
+
+.logo{
+    @include tipo($size:1.7rem,$weight:500);
+    span{
+        color:$principal;
+    }
+}
+
+
+.banner{
+    
+    @include fondo($url:"../img/fondoCabecera1.jpg");
+    padding:0px;
+
+    .layer{
+
+        background-color: rgba(0, 0, 0, 0.6);
+        padding:0 !important;
+        margin:0!important;
+        width: 100%;
+        @include flex($fd:column, $ai:flex-end, $jc:space-between);
+        text-align: left;
+        min-height: 75vh ;        
+        margin:0px;
+
+        .banner-info{            
+            margin-top:150px;
+            width: 35%;
+            h2{
+                text-decoration: underline;
+                color:$principal;
+                @include tipo($size:3.4rem, $weight:500);
+                margin-bottom: 20px;
+            }
+            p{
+                width: 75%;
+                @include tipo($weight:500);
+                color:$blanco;
+                margin-bottom: 50px;
+            }    
+        }
+        .banner-icons{
+            
+        
+            margin-bottom: 50px;
+            
+            @include flex($ai:center, $jc:space-between);
+            a{
+                color:$blanco;
+            }
+        }
+    }
+}
+
+section{
+    margin-bottom: 75px;
+}

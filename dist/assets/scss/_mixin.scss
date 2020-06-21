@@ -67,8 +67,8 @@
 
 }
 
-@mixin fondo($url, $posx:center, $posy:center){
-    background: url($url) no-repeat $posx $posy / cover;
+@mixin fondo($url, $posx:center, $posy:center,$color:null){
+    background: url($url) $color no-repeat $posx $posy / cover;
 }
 
 @mixin tipo($font:$font-name, $weight:normal, $size:$font-size){

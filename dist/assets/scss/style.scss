@@ -1,0 +1,183 @@
+@import "reset";
+@import "variable";
+@import "mixin";
+@import "placeholder";
+
+body {
+    @include tipo();
+    background-color: $blanco;
+    
+    h1{
+        font-size:1.7rem;
+        padding:0;
+        margin:0;
+    }
+
+
+}
+
+.separador{
+    @include separadorModificable($wi:80%);
+}
+.top-bar{
+    background-color: $azulOsc;
+}
+.nav{
+    background-color: $azulOsc;
+    
+
+}
+
+
+
+.boton{
+    font-size: 20px;
+    color:$blanco;
+    border:none;
+    padding: 5px 25px;
+    background: $principal;
+    border-radius: 5px;
+    // background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(191,180,143,1) 100%);
+}
+
+.logo-dark{
+    
+        @include tipo($size:1.7rem,$weight:500);
+      
+    
+    span{
+        color:$principal;
+    }
+    &:hover{
+        color:$principal;
+    }
+}
+
+.logo-light{
+
+        @include tipo($size:1.7rem,$weight:500);
+        color:$blanco;   
+    
+    span{
+        color:$principal;
+    }
+
+    &:hover{
+        color:$principal;
+    }
+}
+
+
+
+.navbar{
+    background-color: $secundario;
+    padding: 20px 0 20px 0;
+    div.container{
+        padding-right:0px !important;
+        div{
+            nav{ 
+                display:flex;
+                justify-content: space-between;
+                a{
+                                   
+                    color:$azulOsc;
+                    font-size:1.3rem;   
+                    font-weight: 500;  
+                    
+                    
+                    &:hover{
+                        color:$blanco;
+                        
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+section#quote{
+    min-height: 20vh;
+    background-color: $blanco;
+}
+section#banner{
+    @include fondo($url:"../img/fondoCabecera1.jpg");  
+
+        .layer{
+            background-color: rgba(0, 0, 0, 0.6);        
+            @include flex($fd:column, $ai:flex-end, $jc:space-between);
+            text-align: left;
+            min-height: 75vh;        
+            .banner{
+                min-width: 100%;
+                min-height: 70vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                padding: 50px 0 50px 0;
+                .banner-info{            
+                    margin-top:50px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    h2{
+                        text-decoration: underline;
+                        color:$principal;
+                        @include tipo($size:4rem, $weight:500);
+                        
+                    }
+                    p{
+                        margin:40px 0 40px 0;
+                        padding-left: 50%;
+                        @include tipo($weight:500, $size:1.4rem);
+                        color:$blanco;
+                        
+                    }
+                    a{
+                        font-size: 1.4rem;                        
+                    }  
+                }
+                .banner-icons{ 
+                                   
+                    @include flex($ai:flex-end, $jc:center);
+                    a{
+                        margin: 0 100px 0 100px;
+                        color:$blanco;
+                    }
+                }
+            }
+
+            
+        }
+    
+}
+
+.bloque-imagen-texto{
+    background-color: $secundario;
+    padding:0 20px 0 20px;
+    div{
+        margin: 0;
+    
+    min-height:70vh;
+    figure{
+        margin: 0;
+        padding:0;
+        img{
+            
+            min-width: 100%;
+            min-height: 65vh;
+            max-height: 65vh;
+            background-color: blue;
+        }
+        figcaption{
+            padding:50px;
+            min-height: 10vh;
+            background-color: $secundario;
+        }
+    }
+    }
+    
+
+
+
+}

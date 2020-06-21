@@ -1215,72 +1215,108 @@ a:hover {
 }
 
 body {
-  font-size: 1rem;
-  font-family: "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,400;1,700&display=swap";
   font-family: "Poppins";
   font-weight: normal;
-  font-size: 16px;
+  font-size: 20px;
+  background-color: #f5f5f5;
 }
 
-body nav.nav {
-  background-color: #16262E;
-  padding: 15px 10%;
-}
-
-body nav.nav .nav-left {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
-
-body nav.nav a {
-  color: #E9E9E9;
-  margin: 5px;
-  margin-right: 5vh;
-  padding: 5px;
-}
-
-body nav.nav a:hover {
-  color: #C58911;
-}
-
-h1 {
+body h1 {
   font-size: 1.7rem;
   padding: 0;
   margin: 0;
 }
 
-.boton {
-  font-size: 20px;
-  color: #E9E9E9;
-  border: none;
-  padding: 5px 25px;
-  background: white;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #bfb48f 100%);
+.separador {
+  content: "";
+  width: 80%;
+  height: 3px;
+  border-radius: 10px;
+  background-color: #C58911;
+  margin: 15px 0px;
 }
 
-.logo {
+.top-bar {
+  background-color: #16262E;
+}
+
+.nav {
+  background-color: #16262E;
+}
+
+.boton {
+  font-size: 20px;
+  color: #f5f5f5;
+  border: none;
+  padding: 5px 25px;
+  background: #C58911;
+  border-radius: 5px;
+}
+
+.logo-dark {
   font-family: "Poppins";
   font-weight: 500;
   font-size: 1.7rem;
 }
 
-.logo span {
+.logo-dark span {
   color: #C58911;
 }
 
-.banner {
-  background: url("../img/fondoCabecera1.jpg") no-repeat center center/cover;
-  padding: 0px;
+.logo-dark:hover {
+  color: #C58911;
 }
 
-.banner .layer {
+.logo-light {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 1.7rem;
+  color: #f5f5f5;
+}
+
+.logo-light span {
+  color: #C58911;
+}
+
+.logo-light:hover {
+  color: #C58911;
+}
+
+.navbar {
+  background-color: #BFB48F;
+  padding: 20px 0 20px 0;
+}
+
+.navbar div.container {
+  padding-right: 0px !important;
+}
+
+.navbar div.container div nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar div.container div nav a {
+  color: #16262E;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.navbar div.container div nav a:hover {
+  color: #f5f5f5;
+}
+
+section#quote {
+  min-height: 20vh;
+  background-color: #f5f5f5;
+}
+
+section#banner {
+  background: url("../img/fondoCabecera1.jpg") no-repeat center center/cover;
+}
+
+section#banner .layer {
   background-color: rgba(0, 0, 0, 0.6);
-  padding: 0 !important;
-  margin: 0 !important;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -1288,45 +1324,83 @@ h1 {
   flex-direction: column;
   text-align: left;
   min-height: 75vh;
-  margin: 0px;
 }
 
-.banner .layer .banner-info {
-  margin-top: 150px;
-  width: 35%;
+section#banner .layer .banner {
+  min-width: 100%;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 50px 0 50px 0;
 }
 
-.banner .layer .banner-info h2 {
+section#banner .layer .banner .banner-info {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+section#banner .layer .banner .banner-info h2 {
   text-decoration: underline;
   color: #C58911;
   font-family: "Poppins";
   font-weight: 500;
-  font-size: 3.4rem;
-  margin-bottom: 20px;
+  font-size: 4rem;
 }
 
-.banner .layer .banner-info p {
-  width: 75%;
+section#banner .layer .banner .banner-info p {
+  margin: 40px 0 40px 0;
+  padding-left: 50%;
   font-family: "Poppins";
   font-weight: 500;
-  font-size: 16px;
-  color: #E9E9E9;
-  margin-bottom: 50px;
+  font-size: 1.4rem;
+  color: #f5f5f5;
 }
 
-.banner .layer .banner-icons {
-  margin-bottom: 50px;
+section#banner .layer .banner .banner-info a {
+  font-size: 1.4rem;
+}
+
+section#banner .layer .banner .banner-icons {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-end;
   flex-wrap: wrap;
   flex-direction: row;
 }
 
-.banner .layer .banner-icons a {
-  color: #E9E9E9;
+section#banner .layer .banner .banner-icons a {
+  margin: 0 100px 0 100px;
+  color: #f5f5f5;
 }
 
-section {
-  margin-bottom: 75px;
+.bloque-imagen-texto {
+  background-color: #BFB48F;
+  padding: 0 20px 0 20px;
+}
+
+.bloque-imagen-texto div {
+  margin: 0;
+  min-height: 70vh;
+}
+
+.bloque-imagen-texto div figure {
+  margin: 0;
+  padding: 0;
+}
+
+.bloque-imagen-texto div figure img {
+  min-width: 100%;
+  min-height: 65vh;
+  max-height: 65vh;
+  background-color: blue;
+}
+
+.bloque-imagen-texto div figure figcaption {
+  padding: 50px;
+  min-height: 10vh;
+  background-color: #BFB48F;
 }

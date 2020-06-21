@@ -109,10 +109,11 @@
     margin-top: $mt;
 }
 
-@mixin separadorModificable($wi:100%,$he:1px,$bgc:$gris,$mx:15px){
+@mixin separadorModificable($wi:100%,$he:3px,$bgc:$principal,$mx:15px){
     content: "";
     width: $wi;
     height: $he;
+    border-radius: 10px;
     background-color: $bgc;
     margin:$mx 0px;
 }

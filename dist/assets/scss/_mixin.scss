@@ -71,10 +71,11 @@
     background: url($url) $color no-repeat $posx $posy / cover;
 }
 
-@mixin tipo($font:$font-name, $weight:normal, $size:$font-size){
+@mixin tipo($font:$font-name, $weight:normal, $size:$font-size, $color:null){
     font-family:$font;
     font-weight: $weight;
     font-size:$size;
+    color:$color;
 }
 
 @mixin boton($radio:15px, $px:20px, $py:10px, $bgc:$azulCl, $color:$blanco){

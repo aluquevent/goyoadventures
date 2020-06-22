@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   padding: 0px;
   margin: 0px;
@@ -1214,6 +1215,30 @@ a:hover {
   padding: 200px;
 }
 
+.fondo-crema {
+  background-color: #FFF6D9;
+}
+
+.fondo-verde {
+  background-color: #638475;
+}
+
+.fondo-secundario {
+  background-color: #BFB48F;
+}
+
+.fondo-gris {
+  background-color: #E1DEE3;
+}
+
+.fondo-azulOsc {
+  background-color: #16262E;
+}
+
+.fondo-terracota {
+  background-color: #c89c7d;
+}
+
 body {
   font-family: "Poppins";
   font-weight: normal;
@@ -1227,14 +1252,20 @@ body h1 {
   margin: 0;
 }
 
-.menu-fixed {
+header#header {
   position: fixed;
-  z-index: 1000;
-  top: 0;
-  /*max-width:1000px;*/
-  left: 0;
   width: 100%;
+  z-index: 2000;
   box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.5);
+}
+
+main#main {
+  position: relative;
+  top: 127px;
+}
+
+section {
+  margin-bottom: 150px;
 }
 
 .separador {
@@ -1322,10 +1353,9 @@ section#quote {
 }
 
 section#banner .layer {
-  background: url("../img/fondoCabecera1.jpg") rgba(0, 0, 0, 0.6) no-repeat center center/cover;
-  position: relative;
-  z-index: 1000;
+  background: url("../img/Turismo_Activo_Deportes_Senderismo_Fuente_del_Hervidero_Boca_de_la_Pescá_IMG_8716_A5.jpg") no-repeat center center/cover;
   width: 100%;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -1335,6 +1365,14 @@ section#banner .layer {
   min-height: 75vh;
 }
 
+section#banner .layer:before {
+  content: "";
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  background-color: #16262e75;
+}
+
 section#banner .layer .banner {
   min-width: 100%;
   min-height: 70vh;
@@ -1342,7 +1380,7 @@ section#banner .layer .banner {
   flex-direction: column;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 150px 0 25px 0;
+  padding: 75px 0 25px 0;
 }
 
 section#banner .layer .banner .banner-info {
@@ -1389,39 +1427,152 @@ section#banner .layer .banner .banner-icons div.banner-circle {
   height: 20px;
   margin: 0 40px 0 40px;
   border-radius: 100%;
-  border: 2px solid #bdbdbd;
+  border: 2px solid #E1DEE3;
   background-color: #16262E;
 }
 
 section#banner .layer .banner .banner-icons div.banner-circle:hover {
   border: 2px solid #f5f5f5;
-  background-color: #bdbdbd;
+  background-color: #E1DEE3;
 }
 
 .bloque-imagen-texto {
-  background-color: #BFB48F;
-  padding: 0 20px 0 20px;
-}
-
-.bloque-imagen-texto div {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  flex-direction: column;
   margin: 0;
-  min-height: 70vh;
 }
 
-.bloque-imagen-texto div figure {
-  margin: 0;
-  padding: 0;
-}
-
-.bloque-imagen-texto div figure img {
+.bloque-imagen-texto img {
   min-width: 100%;
-  min-height: 65vh;
-  max-height: 65vh;
-  background-color: blue;
+  max-width: 100%;
+  min-height: 50vh;
+  max-height: 70vh;
 }
 
-.bloque-imagen-texto div figure figcaption {
+.image-block {
+  display: flex;
+}
+
+.image-block div {
+  width: 50%;
+  overflow: hidden;
+  max-height: 500px;
+}
+
+section#equipo div div div h3 {
   padding: 50px;
-  min-height: 10vh;
+  padding-left: 0;
+  padding-bottom: 0px;
+  color: #C58911;
+}
+
+section#equipo div div div p {
+  color: #f5f5f5;
+}
+
+.contacto .info, .contacto .formulario {
+  display: flex;
+  flex-direction: column;
+  min-height: 30vh;
+  padding: 50px;
+  justify-content: center;
+  align-items: flex-start;
   background-color: #BFB48F;
+  color: #16262E;
+}
+
+.contacto .info {
+  border-radius: 15px 0 0 15px;
+}
+
+.contacto .info h3 {
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 2.2rem;
+}
+
+.contacto .info .contact-info {
+  margin-top: 50px;
+}
+
+.contacto .info .contact-info div {
+  margin-bottom: 20px;
+}
+
+.contacto .info .contact-info div a {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 2rem;
+  color: #16262E;
+}
+
+.contacto .formulario {
+  align-items: flex-end;
+  border-radius: 0 15px 15px 0px;
+}
+
+.contacto .formulario input, .contacto .formulario textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  background-color: #E1DEE3;
+  padding: 15px;
+  border-radius: 0px;
+}
+
+.contacto .formulario input {
+  border: none;
+  border-bottom: 3px solid #C58911;
+}
+
+.contacto .formulario textarea {
+  border: 3px solid #C58911;
+}
+
+.titulo {
+  border-radius: 5px;
+  background: url("../img/ALTIPLANO.jpg") no-repeat center center/cover;
+  height: 200px;
+  width: 100%;
+}
+
+.titulo .texto-titulo {
+  background-color: #e1dee388;
+  width: 50%;
+  height: 100%;
+}
+
+.titulo .texto-titulo h1 {
+  font-family: "Poppins";
+  font-weight: 900;
+  font-size: 2rem;
+  color: #16262E;
+}
+
+.sidebar {
+  border-radius: 5px;
+  padding: 30px;
+  background-color: #E1DEE3;
+  height: 1000px;
+  width: 100%;
+}
+
+.imagen-dia {
+  border-radius: 2px;
+  height: 200px;
+  width: 100%;
+  background: url("../img/ALTIPLANO.jpg") no-repeat center center/cover;
+}
+
+.descripcion-general {
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: #BFB48F;
+}
+
+.descripcion {
+  border-radius: 5px;
+  background-color: #E1DEE3;
 }

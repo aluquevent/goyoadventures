@@ -26,7 +26,6 @@ include 'assets/php/functions.php'
                     <h2 class="w-100">Contacto</h2>
                     <div class="separador"></div>
                 </div>
-                
                 <div class="row contacto">
                     <div class="col-6 info">
                         <h3 class="w-100">Déjame un mensaje y me pondré en contacto</h3>

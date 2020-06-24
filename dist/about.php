@@ -53,13 +53,13 @@ include 'assets/php/functions.php'
                     <img src="assets/img/ALTIPLANO.jpg" alt="">
                 </div>
                 <div class="col-md-9">
-                    <h2>Goyo Garrido</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores odit excepturi, laudantium sint odio consequuntur rem asperiores illo incidunt debitis veniam repudiandae, ut eligendi neque aspernatur ab ipsam quia minus maxime. Odit suscipit, voluptatum possimus similique natus nostrum corporis accusamus excepturi, ipsa quod perferendis enim, nisi iste. Assumenda, deserunt aliquam.</p>
+                    <h3>Goyo Garrido</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, quae possimus? Rerum facere fugit quidem aspernatur facilis labore in aperiam dolorum cupiditate voluptatem minus est suscipit, debitis iusto totam qui eius dignissimos quam, ut nihil maxime. Quae, in obcaecati saepe error soluta pariatur eos hic laboriosam qui eligendi eaque cumque aut, debitis distinctio ipsa mollitia! Voluptate eius aspernatur eveniet consectetur possimus at molestiae repellendus veniam modi, nulla maxime ullam laudantium dolorem beatae deleniti tempora maiores minima sapiente. Impedit, amet error, animi ipsum saepe numquam possimus, quae nulla deserunt repellat mollitia? Natus quidem at minima necessitatibus, facere maiores. Ab architecto ipsum optio, quisquam enim saepe. Voluptates, totam. Accusamus amet eaque sint dolores architecto repudiandae vel ad nemo saepe itaque suscipit accusantium nesciunt sed tempora magni numquam similique culpa ex, et eius officiis. Tempore vero ipsa non doloribus vitae error, magni dolor unde aspernatur soluta voluptatem a. Repudiandae ratione ipsam tenetur, laboriosam quia magnam consectetur, amet id odit veritatis ad quibusdam ex earum placeat rem itaque, ullam officiis. Dolorem a non repellat eligendi! Reiciendis beatae temporibus, expedita voluptate mollitia alias nihil iusto quasi at labore libero reprehenderit! Voluptas pariatur sit culpa a tenetur repellendus dolorem impedit, rem aspernatur sequi nisi praesentium optio?Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores odit excepturi, laudantium sint odio consequuntur rem asperiores illo incidunt debitis veniam repudiandae, ut eligendi neque aspernatur ab ipsam quia minus maxime. Odit suscipit, voluptatum possimus similique natus nostrum corporis accusamus excepturi, ipsa quod perferendis enim, nisi iste. Assumenda, deserunt aliquam.</p>
                 </div>
                 <div class="separador"></div>
 
                 <div class="col-md-9">
-                    <h2>Goyo Garrido</h2>
+                    <h3>Goyo Garrido</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores odit excepturi, laudantium sint odio
                         consequuntur rem asperiores illo incidunt debitis veniam repudiandae, ut eligendi neque aspernatur ab ipsam quia
                         minus maxime. Odit suscipit, voluptatum possimus similique natus nostrum corporis accusamus excepturi, ipsa quod
@@ -73,7 +73,7 @@ include 'assets/php/functions.php'
                     <img src="assets/img/ALTIPLANO.jpg" alt="">
                 </div>
                 <div class="col-md-9">
-                    <h2>Goyo Garrido</h2>
+                    <h3>Goyo Garrido</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores odit excepturi, laudantium sint odio
                         consequuntur rem asperiores illo incidunt debitis veniam repudiandae, ut eligendi neque aspernatur ab ipsam quia
                         minus maxime. Odit suscipit, voluptatum possimus similique natus nostrum corporis accusamus excepturi, ipsa quod
@@ -90,6 +90,22 @@ include 'assets/php/functions.php'
                         obcaecati impedit quam illo! Cupiditate ea iusto autem.</p>
                 </div>
             </div>
+            <section id="colaboradores">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Colaboradores</h2>
+                    <div class="separador"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 colaborador">
+                    <img src="assets/img/ALTIPLANO.jpg" alt="">
+                    <h4><a href="https://naturbike.es">Naturbike</h4>
+                </div>
+            </div>   
+
+
+            </section>
         </div>
     </main>
     <?php

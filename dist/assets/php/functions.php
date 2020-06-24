@@ -6,8 +6,8 @@ function menu(){
         <div class="top-bar">           
             <div class="container">
                     <div class="row justify-content-between py-3">
-                        <h1><a class="logo logo-light"  href="index.html"><span>Goyo</span>Adventures</a></h1>
-                        <button class="boton"><a href="contact.php">Contacto</a></button>       
+                        <h1><a class="logo logo-light"  href="index.php"><span>Goyo</span>Adventures</a></h1>
+                        <button class="boton"><a href="contact.php">Contacto</a></button>
                     </div>
             </div>
         </div>
@@ -16,7 +16,7 @@ function menu(){
             <div class="container pl-0">            
                 <div class="row w-100 ml-0">                                        
                         <nav class="w-100">                            
-                            <a href="token.php">Barranquismo</a>
+                            <a href="categories.php">Barranquismo</a>
                             <a href="">Bicicleta</a>
                             <a href="">Caballos</a>
                             <a href="">4x4</a>
@@ -38,11 +38,11 @@ function footer(){
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <h2><a class="logo logo-light" href="#"><span>Goyo</span>Adventures</a></h2>
+                    <h2><a class="logo logo-light" href="index.php"><span>Goyo</span>Adventures</a></h2>
                 </div>
                 <div class="col-md-4">
                     <nav class="w-100 footer-menu">
-                        <a href="#">Barranquismo</a>
+                        <a href="token.php">Barranquismo</a>
                         <a href="#">Bicicleta</a>
                         <a href="#">Caballos</a>
                         <a href="#">4x4</a>

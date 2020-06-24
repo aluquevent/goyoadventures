@@ -30,7 +30,7 @@ include 'assets/php/functions.php'
                         <div class="banner-info col-12">
                             <h2>Barranquismo</h2>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem mollitia excepturi voluptate unde laudantium aut nostrum nam, accusamus enim alias.</p>
-                            <a class="boton" href="">Descubre</a>
+                            <a class="boton" href="categories.php">Descubre</a>
                         </div>
                         <div class="banner-icons col-12">
                             <div class="banner-circle"></div>

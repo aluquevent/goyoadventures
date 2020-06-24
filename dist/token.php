@@ -60,11 +60,23 @@ include 'assets/php/functions.php'
                     <div class="sidebar">
                         <h2>Informe técnico</h2>
                         <div class="separador"></div>
-                        <p class="sidebar-item">Lorem ipsum dolor sit amet.</p>
-                        <p class="sidebar-item">Lorem ipsum dolor sit amet.</p>
-                        <p class="sidebar-item">Lorem ipsum dolor sit amet.</p>
-                        <p class="sidebar-item">Lorem ipsum dolor sit amet.</p>
-                        <p class="sidebar-item">Lorem ipsum dolor sit amet.</p>
+                        <p class="sidebar-item">Dificultad: Media</p>
+                        <div class="separador-secundario"></div>
+                        <p class="sidebar-item">Duración: 3 días</p>
+                        <div class="separador-secundario"></div>
+                        <p class="sidebar-item">Localización: Torcal de Antequera</p>
+ 
+
+                        <ul class="mt-5">
+                            <h3>Incluye</h3>
+                            <div class="separador"></div>
+                            <li>Guía certificado de barrancos</li>
+                            <li>Todo el material necesario</li>
+                            <li>Picnic</li>
+                            <li>Transporte</li>
+                            <li>Seguro</li>
+                            <li>Reportaje fotográfico</li>
+                        </ul>
                     </div>
                 </div>
             </div>

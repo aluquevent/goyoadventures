@@ -39,6 +39,7 @@ section{
 }
 .top-bar{
     background-color: $azulOsc;
+
 }
 .nav{
     background-color: $azulOsc;
@@ -56,6 +57,9 @@ section{
     background: $principal;
     border-radius: 5px;
     // background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(191,180,143,1) 100%);
+    a{
+        color:$blanco;
+    }
 }
 
 .logo-dark{
@@ -218,7 +222,7 @@ section#banner{
     }
 }
 
-section#equipo{
+section#profesionales{
     div{
         div{
             div{
@@ -322,4 +326,43 @@ section#equipo{
 .descripcion{
     border-radius: 5px;
     background-color: $gris;
+}
+
+section#equipo{
+    div{
+        margin:20px 0 20px 0;
+
+        img{
+            max-width: 200px;
+            min-width: 200px;
+            height: 200px;
+
+            border-radius: 100%;
+            overflow: hidden;
+        }
+    }
+}
+
+footer#footer{
+    background-color: $azulOsc;
+    padding: 50px 0 50px 0;
+    color:$blanco;
+        .footer-menu{
+            display: flex;
+            flex-direction: column;
+
+            a{
+                color:$blanco;
+                font-size: 1rem;
+            }
+        }
+        .contacto-footer{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            a{
+                color:$principal;
+                font-size: 1.6rem;
+            }
+        }
 }

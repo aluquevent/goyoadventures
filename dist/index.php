@@ -1,5 +1,9 @@
+<?php
+include 'assets/php/functions.php'
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,34 +16,9 @@
     <script src="https://kit.fontawesome.com/0c2b6b3736.js" crossorigin="anonymous"></script>    
 </head>
 <body>
-    <header id="header" class="menu">
-        <!-- Top-bar -->
-        <div class="top-bar">           
-            <div class="container">
-                    <div class="row justify-content-between py-3">
-                        <h1><a class="logo logo-light"  href="#"><span>Goyo</span>Adventures</a></h1>
-                        <button class="boton">Contacto</button>       
-                    </div>
-            </div>
-        </div>
-        <!-- Nav -->
-        <div class="navbar ">   
-            <div class="container pl-0">            
-                <div class="row w-100 ml-0">                                        
-                        <nav class="w-100">
-                            <a href="#">Barranquismo</a>
-                            <a href="#">Bicicleta</a>
-                            <a href="#">Caballos</a>
-                            <a href="#">4x4</a>
-                            <a href="#">Senderismo</a>
-                            <a href="#">Ofertas</a>
-                            <a href="#">Lunáticos</a>
-                            <a href="#">Sobre nosotros</a>
-                        </nav>                                  
-                </div>
-            </div>        
-        </div>
-    </header>
+    <?php
+    menu();
+    ?>
     <!-- Banner -->
     <main id="main">
     <section id="banner">
@@ -129,7 +108,7 @@
             </div>
         </div>
     </section>
-    <section id="equipo">
+    <section id="profesionales">
         <div class="container">
             <div class="row">
                 <h2>Profesionales</h2>
@@ -206,9 +185,9 @@
     </section>
 
     </main>
-    <footer id="footer">
-        
-    </footer>
+    <?php
+    footer();
+    ?>
 
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

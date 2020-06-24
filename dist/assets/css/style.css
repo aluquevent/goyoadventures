@@ -1294,6 +1294,10 @@ section {
   border-radius: 5px;
 }
 
+.boton a {
+  color: #f5f5f5;
+}
+
 .logo-dark {
   font-family: "Poppins";
   font-weight: 500;
@@ -1462,14 +1466,14 @@ section#banner .layer .banner .banner-icons div.banner-circle:hover {
   max-height: 500px;
 }
 
-section#equipo div div div h3 {
+section#profesionales div div div h3 {
   padding: 50px;
   padding-left: 0;
   padding-bottom: 0px;
   color: #C58911;
 }
 
-section#equipo div div div p {
+section#profesionales div div div p {
   color: #f5f5f5;
 }
 
@@ -1575,4 +1579,43 @@ section#equipo div div div p {
 .descripcion {
   border-radius: 5px;
   background-color: #E1DEE3;
+}
+
+section#equipo div {
+  margin: 20px 0 20px 0;
+}
+
+section#equipo div img {
+  max-width: 200px;
+  min-width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+footer#footer {
+  background-color: #16262E;
+  padding: 50px 0 50px 0;
+  color: #f5f5f5;
+}
+
+footer#footer .footer-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+footer#footer .footer-menu a {
+  color: #f5f5f5;
+  font-size: 1rem;
+}
+
+footer#footer .contacto-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+footer#footer .contacto-footer a {
+  color: #C58911;
+  font-size: 1.6rem;
 }

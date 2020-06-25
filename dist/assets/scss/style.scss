@@ -24,16 +24,12 @@ header#header{
     top:0px;
 }
 main#main{
-    margin-top: 125px !important;
+    margin-top: 140px !important;
 }
-
-
 
 section{
     margin-bottom: 50px;
 }
-
-
 
 .separador{
     @include separadorModificable($wi:80%);

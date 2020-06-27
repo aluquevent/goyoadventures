@@ -8,12 +8,11 @@ include 'assets/php/functions.php'
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goyo Adventures | Inicio</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>    
-    <script type="text/javascript" src="assets/js/jquery.js"></script>
-    <script src="https://kit.fontawesome.com/0c2b6b3736.js" crossorigin="anonymous"></script>    
+    <?php
+    import_css();
+    import_js_head();
+    ?>
+    <script type="text/javascript" src="assets/js/app.js"></script>    
 </head>
 <body>
     <?php
@@ -21,8 +20,7 @@ include 'assets/php/functions.php'
     ?>
     <!-- Banner -->
     <main id="main">
-    <section id="banner">
-        
+    <section id="banner">        
         <div class="layer">      
             <div class="container">           
                 <div class="row banner">
@@ -45,26 +43,14 @@ include 'assets/php/functions.php'
             </div>
         </div>        
     </section>
-    
-    
-        <!-- Quote -->
-    <!-- <section id="quote">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    "this is a quote"
-                </div>
-            </div>
-        </div>
-    </section> -->
+
     <!-- Aventuras -->
     <section id="aventuras">
         <div class="container mb-5">
             <div class="row">
                 <h2>¡Elige tu aventura!</h2>
                 <div class="separador"></div>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor modi sed eum doloremque ratione maiores nobis laudantium debitis soluta voluptatem.</p>
-                
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor modi sed eum doloremque ratione maiores nobis laudantium debitis soluta voluptatem.</p>    
             </div>
         </div>
 
@@ -94,7 +80,7 @@ include 'assets/php/functions.php'
                 </div>
             </div>
         </div>
-        <div class="fondo-verde">          
+        <div class="fondo-azul">          
             <div class="container-fluid p-0">         
                 <div class="row">    
                     <div class="col-md-6 col-12 p-0 bloque-imagen-texto">
@@ -131,8 +117,7 @@ include 'assets/php/functions.php'
                             <img src="assets/img/Cicloturismo_en_Granada_MTB.jpg" alt="">
                         </div>
                     </div>
-                </div>
-                
+                </div>                
             </div>
         </div>
 
@@ -148,49 +133,47 @@ include 'assets/php/functions.php'
                 <input type="email" name="boletin" id="boletin">
                 <input type="submit" value="Suscribirse">
             </div>
-        </div>
-        
+        </div>        
     </section>
+
     <section id="contacto">
-    <div class="container">
-        <div class="row">
-            <h2 class="w-100">Contacto</h2>
-            <div class="separador"></div>
-        </div>
-        
-        <div class="row contacto">
-            <div class="col-6 info">
-                <h3 class="w-100">Déjame un mensaje y me pondré en contacto</h3>
-                <div class="contact-info">
-                    <div>
-                         <a href="tel:+655443321"><i class="fab fa-whatsapp mr-3"></i>654 34 34 23</a>
+        <div class="container">
+            <div class="row">
+                <h2 class="w-100">Contacto</h2>
+                <div class="separador"></div>
+            </div>
+            
+            <div class="row contacto">
+                <div class="col-6 info">
+                    <h3 class="w-100">Déjame un mensaje y me pondré en contacto</h3>
+                    <div class="contact-info">
+                        <div>
+                            <a href="tel:+655443321"><i class="fab fa-whatsapp mr-3"></i>654 34 34 23</a>
+                        </div>
+                        <div>
+                            <a href="mailto:tobinhere@gmail.com"><i class="far fa-envelope mr-3"></i>tobinhere@gmail.com</a>
+                        </div>
                     </div>
-                    <div>
-                        <a href="mailto:tobinhere@gmail.com"><i class="far fa-envelope mr-3"></i>tobinhere@gmail.com</a>
-                    </div>
+                    
                 </div>
-                
-            </div>
-            <div class="col-6 formulario">
-                <form action="contacto.php" method="POST">
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre">
-                    <input type="email" name="email" id="email" placeholder="Email">
-                    <input type="text" name="asunto" id="asunto" placeholder="Asunto">
-                    <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Mensaje..."></textarea>
-                </form>
-                <button type="submit" class="boton">Enviar</button>
+                <div class="col-6 formulario">
+                    <form action="contacto.php" method="POST">
+                        <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+                        <input type="email" name="email" id="email" placeholder="Email">
+                        <input type="text" name="asunto" id="asunto" placeholder="Asunto">
+                        <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Mensaje..."></textarea>
+                    </form>
+                    <button type="submit" class="boton">Enviar</button>
+                </div>
             </div>
         </div>
-    </div>
     </section>
 
     </main>
     <?php
     footer();
+    import_js();
     ?>
 
-
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 </html>

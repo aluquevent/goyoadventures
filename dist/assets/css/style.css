@@ -1220,11 +1220,11 @@ ul, li {
 }
 
 .fondo-crema {
-  background-color: #FFF6D9;
+  background-color: #CAB05B;
 }
 
-.fondo-verde {
-  background-color: #638475;
+.fondo-azul {
+  background-color: #177078;
 }
 
 .fondo-secundario {
@@ -1478,7 +1478,7 @@ section#profesionales div div div h3 {
   padding: 50px;
   padding-left: 0;
   padding-bottom: 0px;
-  color: #C58911;
+  color: #177078;
 }
 
 section#profesionales div div div p {

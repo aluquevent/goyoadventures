@@ -207,7 +207,7 @@ include '../../assets/php/functions.php';
 
         $consulta_actualizacion->execute();
 
-        $consulta_dias_imagenes = $conexion -> prepare("UPDATE salida SET dia1_img=? dia2_img=?, dia3_img=?, dia4_img=?, dia5_img=?, dia6_img=?");
+        $consulta_dias_imagenes = $conexion -> prepare("UPDATE salida SET dia1_img=? dia2_img=?, dia3_img=?, dia4_img=?, dia5_img=?, dia6_img=? WHERE id=?");
         for($i=1; $i<=6; $i++){            
             if(isset($_POST['dia'.$i.'_imagen'])){
                 if(!file_exists("../../assets/img/salidas")){
@@ -224,18 +224,14 @@ include '../../assets/php/functions.php';
                 $nombre_imagen="imagen_salida_".$id_salida."_dia".$i."".$extension_imagen;
                 move_uploaded_file($nombre_tmp_imagen,"../../assets/img/salidas/$nombre_imagen");
 
-                $descripcion = $_POST['dia'.$i.'_descripcion'];
+                
                 $consulta_dias_imagenes -> bindParam($i,$nombre_imagen);
-            }else{
-                $nombre_imagen="";
-   
-                $consulta_dias_imagenes -> bindParam($i,$nombre_imagen);
-
-            }           
+            }         
         }
+        $consulta_dias_imagenes -> bindParam(7,$id_salida);
         $consulta_dias_imagenes -> execute();
 
-        $consulta_dias_descripcion = $conexion -> prepare("UPDATE salida set dia1_desc=?, dia2_desc=?, dia3_desc=?, dia4_desc=?, dia5_desc=?, dia6_desc=?");        
+        $consulta_dias_descripcion = $conexion -> prepare("UPDATE salida set dia1_desc=?, dia2_desc=?, dia3_desc=?, dia4_desc=?, dia5_desc=?, dia6_desc=? WHERE id=?");        
 
         for($i=1; $i<=6; $i++){
             
@@ -247,6 +243,7 @@ include '../../assets/php/functions.php';
                 $consulta_dias_descripcion -> bindParam($i,$descripcion);
             }           
         }
+        $consulta_dias_descripcion -> bindParam(7,$id_salida);
         $consulta_dias_descripcion -> execute();
 
         // echo "<meta http-equiv='refresh' content='0; url=salidas.php'>";

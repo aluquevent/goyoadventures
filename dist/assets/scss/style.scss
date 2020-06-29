@@ -24,7 +24,7 @@ header#header{
     top:0px;
 }
 main#main{
-    margin-top: 140px !important;
+    margin-top: 143px !important;
 }
 
 section{
@@ -117,77 +117,77 @@ section{
     }
 }
 
-section#banner{
-        .layer{
-            @include fondo($url:"../img/Turismo_Activo_Deportes_Senderismo_Fuente_del_Hervidero_Boca_de_la_Pescá_IMG_8716_A5.jpg");
-            width: 100%;
-            position: relative;
-            &:before{
-                content:"";
-                width: 100%;
-                min-height: 100%;
-                position: absolute;
+// section#banner{
+//         .layer{
+//             @include fondo($url:"../img/Turismo_Activo_Deportes_Senderismo_Fuente_del_Hervidero_Boca_de_la_Pescá_IMG_8716_A5.jpg");
+//             width: 100%;
+//             position: relative;
+//             &:before{
+//                 content:"";
+//                 width: 100%;
+//                 min-height: 100%;
+//                 position: absolute;
             
-                background-color: #16262e75;
-            }
+//                 background-color: #16262e75;
+//             }
                      
-            @include flex($fd:column, $ai:flex-end, $jc:space-between);
-            text-align: left;
-            min-height: 75vh;        
-            .banner{
-                min-width: 100%;
-                min-height: 70vh;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                flex-wrap: wrap;
-                padding: 75px 0 25px 0;
-                .banner-info{            
-                    margin-top:50px;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-end;
-                    h2{
-                        text-decoration: underline;
-                        color:$principal;
-                        @include tipo($size:4rem, $weight:500);
+//             @include flex($fd:column, $ai:flex-end, $jc:space-between);
+//             text-align: left;
+//             min-height: 75vh;        
+//             .banner{
+//                 min-width: 100%;
+//                 min-height: 70vh;
+//                 display: flex;
+//                 flex-direction: column;
+//                 justify-content: space-between;
+//                 flex-wrap: wrap;
+//                 padding: 75px 0 25px 0;
+//                 .banner-info{            
+//                     margin-top:50px;
+//                     display: flex;
+//                     flex-direction: column;
+//                     align-items: flex-end;
+//                     h2{
+//                         text-decoration: underline;
+//                         color:$principal;
+//                         @include tipo($size:4rem, $weight:500);
                         
-                    }
-                    p{
-                        margin:40px 0 40px 0;
-                        padding-left: 50%;
-                        @include tipo($weight:500, $size:1.4rem);
-                        color:$blanco;
+//                     }
+//                     p{
+//                         margin:40px 0 40px 0;
+//                         padding-left: 50%;
+//                         @include tipo($weight:500, $size:1.4rem);
+//                         color:$blanco;
                         
-                    }
-                    a{
-                        font-size: 1.4rem;                        
-                    }  
-                }
-                .banner-icons{ 
-                    width: 100%;
-                    height: 100px;
-                    margin-top:200px;
-                    @include flex($ai:flex-end, $jc:center);
-                    div.banner-circle{
-                        width: 20px;
-                        height: 20px;
-                        margin:0 40px 0 40px;
-                        border-radius: 100%;
-                        border: 2px solid $gris;
-                        background-color: $azulOsc;
-                        &:hover{
-                            border:2px solid $blanco;
-                            background-color:$gris;
-                        }
-                    }
-                }
-            }
+//                     }
+//                     a{
+//                         font-size: 1.4rem;                        
+//                     }  
+//                 }
+//                 .banner-icons{ 
+//                     width: 100%;
+//                     height: 100px;
+//                     margin-top:200px;
+//                     @include flex($ai:flex-end, $jc:center);
+//                     div.banner-circle{
+//                         width: 20px;
+//                         height: 20px;
+//                         margin:0 40px 0 40px;
+//                         border-radius: 100%;
+//                         border: 2px solid $gris;
+//                         background-color: $azulOsc;
+//                         &:hover{
+//                             border:2px solid $blanco;
+//                             background-color:$gris;
+//                         }
+//                     }
+//                 }
+//             }
 
             
-        }
+//         }
     
-}
+// }
 
 .bloque-imagen-texto{
     
@@ -200,7 +200,7 @@ section#banner{
             img{
                 min-width: 100%;
                 max-width: 100%;
-                min-height: 50vh;
+                min-height: 30vh;
                 max-height: 70vh;               
             }
 }
@@ -239,7 +239,7 @@ section#profesionales{
     .info,.formulario{
         display: flex;
         flex-direction: column;
-        min-height: 30vh;
+        min-height: 25vh;
         padding: 50px;
         justify-content: center;
         align-items: flex-start;
@@ -249,7 +249,8 @@ section#profesionales{
     .info{
         border-radius: 15px 0 0 15px;
         h3{
-            @include tipo($size:2.2rem, $weight:600)
+            @include tipo($size:2.2rem, $weight:600);
+            margin-bottom:25px;
         }
         .contact-info{
             margin-top: 50px;
@@ -282,6 +283,7 @@ section#profesionales{
 }
 
 .titulo{
+    margin-top: 25px;
     border-radius: 5px;
     @include fondo($url:"../img/ALTIPLANO.jpg");
     min-height: 200px;
@@ -327,9 +329,9 @@ section#profesionales{
 
 .imagen-categoria{
     img{
-            border-radius: 2px;
-    max-height: 500px;
-    width: 100%;
+        border-radius: 2px;
+        max-height: 500px;
+        width: 100%;
     
     }
 
@@ -406,7 +408,6 @@ footer#footer{
         .footer-menu{
             display: flex;
             flex-direction: column;
-
             a{
                 color:$blanco;
                 font-size: 1.1rem;
@@ -426,3 +427,103 @@ footer#footer{
             }
         }
 }
+
+[carrousel] {
+    display: flex;
+    position: relative;
+    //paint
+    // background-color: #47cf73;
+    
+    min-height: 50vh;
+    max-height: 75vh;
+    
+    &::before {
+      content: '';
+      display: block;
+      padding-bottom: 50%;
+      background-color: #16262e75;
+    }
+    
+    [name~="carrousel"] {
+      display: none;
+      
+      &:checked {
+        + .slide {
+          pointer-events: auto;
+          opacity: 1;
+          .slide-content {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .slide-content {
+      opacity: 0;
+      transition: opacity 1s;
+      padding: 10px 30% 10px 30%;
+      background-color: $azulOscOp;
+    }
+    
+    .back,
+    .forward {
+      display: block;
+      position: absolute;
+      top: calc(50% - 2rem);
+      height: 4rem;
+      width:  2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+      //paint
+      font-size: .5rem;
+      background-color: lighten($principal, 35%);
+      border-radius: 100px;
+      color: darken($principal, 40%);
+      box-shadow: 0 2px 0 0 rgba(black, .1);
+      transform: scale(.9);
+      transition: transform .2s;
+      
+      
+      &:hover {
+        transform: scale(1);
+        background-color: white;
+      }
+    }
+    
+    .back {
+      left: calc(0% + 1rem);
+    }
+    
+    .forward {
+      right: calc(0% + 1rem);
+    }
+  }
+  
+  //cool stuff stops here
+  [carrousel] {
+    text-align: center;
+    h1 {
+      font-size: 4rem;
+      color: $principal;
+      text-shadow: 0 3px 0 rgba(black, .2);
+    }
+    p{
+        color:$blanco;
+        
+    }
+  }

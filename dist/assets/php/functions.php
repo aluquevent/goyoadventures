@@ -37,9 +37,13 @@ function menu(){
             </div>
         </div>
         <!-- Nav -->
-        <div class="navbar ">   
+        <div class="navbar navbar-expand-lg">   
             <div class="container pl-0">            
-                <div class="row w-100 ml-0">                                        
+                <div class="row w-100 ml-0">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">                                        
                         <nav class="w-100">                            
                             <a href="categories.php?id=<?=$datos_barranquismo['id']?>">Barranquismo</a>
                             <a href="categories.php?id=<?=$datos_bicicleta['id']?>">Bicicleta</a>
@@ -48,7 +52,8 @@ function menu(){
                             <a href="categories.php?id=<?=$datos_senderismo['id']?>">Senderismo</a>
                             <a href="lunaticos.php">Lunáticos</a>
                             <a href="about.php">Sobre nosotros</a>
-                        </nav>                                  
+                        </nav>
+                        </div>                                  
                 </div>
             </div>        
         </div>
@@ -141,7 +146,7 @@ function import_js(){
 }
 
 function import_css(){
-    echo "<link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css integrity=sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk crossorigin=anonymous>
+    echo "<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,400;1,700&display=swap'><link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css integrity=sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk crossorigin=anonymous>
     <link rel=stylesheet href=assets/css/style.css>
     <script src='https://kit.fontawesome.com/0c2b6b3736.js' crossorigin='anonymous'></script>";
 }

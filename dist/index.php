@@ -8,6 +8,7 @@ include 'assets/php/functions.php'
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goyo Adventures | Inicio</title>
+    
     <?php
     import_css();
     import_js_head();    
@@ -150,7 +151,7 @@ include 'assets/php/functions.php'
             </div>
         </div>
         <div class="fondo-azul">          
-            <div class="container-fluid p-0">         
+            <div class="container-fluid">         
                 <div class="row">    
                     <div class="col-md-6 col-12 p-0 bloque-imagen-texto">
                         <img class="" src="assets/img/DESCENSO_BARRANCOS.jpg" alt="">

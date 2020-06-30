@@ -28,7 +28,7 @@ include 'assets/php/functions.php'
     <main id="main">
         <div class="container">
             <div class="row">
-                <div class="titulo">
+                <div class="titulo mt-3" style="background: url(assets/img/ALTIPLANO.jpg) center center; background-size: cover;">
                     <div class="texto-titulo w-30 p-5">
                         <h1>Quiénes somos</h1>
                     </div>

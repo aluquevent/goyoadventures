@@ -35,15 +35,20 @@ include '../../assets/php/functions.php';
                     <label for="nombre">Título salida</label>
                     <input type="text" class="form-control" id="nombre" name="nombre">
                 </div>
+                <div class="form-group">                   
+                    <label for="descripcion">Descripcion</label>
+                    <textarea class="form-control" id="descripcion" name="descripcion"></textarea>
+                </div>
                 <div class="form-group">
                     <label for="categoria">Categoría</label>
                     <select class="custom-select" name="categoria" id="inputGroupSelect01">
+                    <option selected>Elegir categoría</option>
                     <?php
                     $consulta_categorias = $conexion -> prepare("SELECT id,nombre from categoria");
                     $consulta_categorias -> setFetchMode(PDO::FETCH_ASSOC);
                     $consulta_categorias -> execute();
                     while($datos_categoria = $consulta_categorias -> fetch()){
-                        echo "<option selected>Elegir categoría</option>
+                        echo "
                         <option value='$datos_categoria[id]'>$datos_categoria[nombre]</option>";
                     }                
                     ?>
@@ -90,10 +95,6 @@ include '../../assets/php/functions.php';
                     <label for="asistentes">Número de asistentes</label>
                     <input type="number" class="form-control" id="asistentes" name="asistentes">
                 </div>
-                <div class="form-group">                
-                    <label for="descripcion">Descripción</label>
-                    <textarea class="form-control" id="descripcion" name="descripcion"></textarea>
-                </div>
                 <div class="form-group"> 
                     <label for="imagen">Seleccionar imagen de vista previa</label>
                     <div class="custom-file">
@@ -124,10 +125,11 @@ include '../../assets/php/functions.php';
 
     <?php 
     if(isset($_POST['crear'])){
-        $consulta = $conexion -> prepare("INSERT INTO salida VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $consulta = $conexion -> prepare("INSERT INTO salida VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
         $id                 =null;
         $titulo             =$_POST['nombre'];
+        $descripcion        =$_POST['descripcion'];
         $categoria          =$_POST['categoria'];
         $ubicacion          =$_POST['ubicacion'];
         $maps               =$_POST['googlemaps_encuentro'];
@@ -156,27 +158,28 @@ include '../../assets/php/functions.php';
     
         $consulta -> bindParam(1,$id);
         $consulta -> bindParam(2,$titulo);
-        $consulta -> bindParam(3,$categoria);
-        $consulta -> bindParam(4,$ubicacion);
-        $consulta -> bindParam(5,$maps);
-        $consulta -> bindParam(6,$imagen);
-        $consulta -> bindParam(7,$punto_encuentro);
-        $consulta -> bindParam(8,$max_asistentes);
-        $consulta -> bindParam(9,$epoca);
-        $consulta -> bindParam(10,$dificultad);
-        $consulta -> bindParam(11,$dia1_imagen);
-        $consulta -> bindParam(12,$dia1_descripcion);
-        $consulta -> bindParam(13,$dia2_imagen);
-        $consulta -> bindParam(14,$dia2_descripcion);
-        $consulta -> bindParam(15,$dia3_imagen);
-        $consulta -> bindParam(16,$dia3_descripcion);
-        $consulta -> bindParam(17,$dia4_imagen);
-        $consulta -> bindParam(18,$dia4_descripcion);
-        $consulta -> bindParam(19,$dia5_imagen);
-        $consulta -> bindParam(20,$dia5_descripcion);
-        $consulta -> bindParam(21,$dia6_imagen);
-        $consulta -> bindParam(22,$dia6_descripcion);
-        $consulta -> bindParam(23,$visible);
+        $consulta -> bindParam(3,$descripcion);
+        $consulta -> bindParam(4,$categoria);
+        $consulta -> bindParam(5,$ubicacion);
+        $consulta -> bindParam(6,$maps);
+        $consulta -> bindParam(7,$imagen);
+        $consulta -> bindParam(8,$punto_encuentro);
+        $consulta -> bindParam(9,$max_asistentes);
+        $consulta -> bindParam(10,$epoca);
+        $consulta -> bindParam(11,$dificultad);
+        $consulta -> bindParam(12,$dia1_imagen);
+        $consulta -> bindParam(13,$dia1_descripcion);
+        $consulta -> bindParam(14,$dia2_imagen);
+        $consulta -> bindParam(15,$dia2_descripcion);
+        $consulta -> bindParam(16,$dia3_imagen);
+        $consulta -> bindParam(17,$dia3_descripcion);
+        $consulta -> bindParam(18,$dia4_imagen);
+        $consulta -> bindParam(19,$dia4_descripcion);
+        $consulta -> bindParam(20,$dia5_imagen);
+        $consulta -> bindParam(21,$dia5_descripcion);
+        $consulta -> bindParam(22,$dia6_imagen);
+        $consulta -> bindParam(23,$dia6_descripcion);
+        $consulta -> bindParam(24,$visible);
 
         $consulta -> execute();
         
@@ -207,46 +210,46 @@ include '../../assets/php/functions.php';
 
         $consulta_actualizacion->execute();
 
-        $consulta_dias_imagenes = $conexion -> prepare("UPDATE salida SET dia1_img=? dia2_img=?, dia3_img=?, dia4_img=?, dia5_img=?, dia6_img=? WHERE id=?");
-        for($i=1; $i<=6; $i++){            
-            if(isset($_POST['dia'.$i.'_imagen'])){
-                if(!file_exists("../../assets/img/salidas")){
-                    mkdir("../../assets/img/salidas");
-                }
-                //Copiar la imagen a nuestro servidor
+        // $consulta_dias_imagenes = $conexion -> prepare("UPDATE salida SET dia1_img=? dia2_img=?, dia3_img=?, dia4_img=?, dia5_img=?, dia6_img=? WHERE id=?");
+        // for($i=1; $i<6; $i++){            
+        //     if(isset($_POST['dia'.$i.'_imagen'])){
+        //         if(!file_exists("../../assets/img/salidas")){
+        //             mkdir("../../assets/img/salidas");
+        //         }
+        //         //Copiar la imagen a nuestro servidor
         
-                $nombre_tmp_imagen=$_FILES['dia'.$i.'_imagen']['tmp_name'];
+        //         $nombre_tmp_imagen=$_FILES['dia'.$i.'_imagen']['tmp_name'];
         
-                $extension_imagen=extension_imagen($_FILES['dia'.$i.'_imagen']['type']);
+        //         $extension_imagen=extension_imagen($_FILES['dia'.$i.'_imagen']['type']);
         
-                //copiamos la imagen con name "imagen"
+        //         //copiamos la imagen con name "imagen"
         
-                $nombre_imagen="imagen_salida_".$id_salida."_dia".$i."".$extension_imagen;
-                move_uploaded_file($nombre_tmp_imagen,"../../assets/img/salidas/$nombre_imagen");
+        //         $nombre_imagen="imagen_salida_".$id_salida."_dia".$i."".$extension_imagen;
+        //         move_uploaded_file($nombre_tmp_imagen,"../../assets/img/salidas/$nombre_imagen");
 
                 
-                $consulta_dias_imagenes -> bindParam($i,$nombre_imagen);
-            }         
-        }
-        $consulta_dias_imagenes -> bindParam(7,$id_salida);
-        $consulta_dias_imagenes -> execute();
+        //         $consulta_dias_imagenes -> bindParam($i,$nombre_imagen);
+        //     }         
+        // }
+        // $consulta_dias_imagenes -> bindParam(7,$id_salida);
+        // $consulta_dias_imagenes -> execute();
 
-        $consulta_dias_descripcion = $conexion -> prepare("UPDATE salida set dia1_desc=?, dia2_desc=?, dia3_desc=?, dia4_desc=?, dia5_desc=?, dia6_desc=? WHERE id=?");        
+        // $consulta_dias_descripcion = $conexion -> prepare("UPDATE salida set dia1_desc=?, dia2_desc=?, dia3_desc=?, dia4_desc=?, dia5_desc=?, dia6_desc=? WHERE id=?");        
 
-        for($i=1; $i<=6; $i++){
+        // for($i=1; $i<=6; $i++){
             
-            if(isset($_POST['dia'.$i.'_descripcion']) && $_POST['dia'.$i.'_descripcion']!=""){
-                $descripcion = $_POST['dia'.$i.'_descripcion'];
-                $consulta_dias_descripcion -> bindParam($i,$descripcion);
-            }else{
-                $descripcion="";
-                $consulta_dias_descripcion -> bindParam($i,$descripcion);
-            }           
-        }
-        $consulta_dias_descripcion -> bindParam(7,$id_salida);
-        $consulta_dias_descripcion -> execute();
+        //     if(isset($_POST['dia'.$i.'_descripcion']) && $_POST['dia'.$i.'_descripcion']!=""){
+        //         $descripcion = $_POST['dia'.$i.'_descripcion'];
+        //         $consulta_dias_descripcion -> bindParam($i,$descripcion);
+        //     }else{
+        //         $descripcion="";
+        //         $consulta_dias_descripcion -> bindParam($i,$descripcion);
+        //     }           
+        // }
+        // $consulta_dias_descripcion -> bindParam(7,$id_salida);
+        // $consulta_dias_descripcion -> execute();
 
-        // echo "<meta http-equiv='refresh' content='0; url=salidas.php'>";
+        echo "<meta http-equiv='refresh' content='0; url=salidas.php'>";
 
     }
     $conexion = null;

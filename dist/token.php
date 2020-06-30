@@ -7,29 +7,36 @@ include 'assets/php/functions.php'
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goyo Adventures | Actividad</title> <!-- bd -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>    
-    <script type="text/javascript" src="assets/js/jquery.js"></script>
-    <script src="https://kit.fontawesome.com/0c2b6b3736.js" crossorigin="anonymous"></script>    
+    <?php
+    import_css();
+    import_js_head();    
+    ?>
 </head>
 <body class="token">
     <?php
     menu();
+    $conexion = conectarBD();
+
+    $id = $_GET['id'];
+
+    $consulta_salida= $conexion -> prepare("SELECT titulo, descripcion_corta, imagen, dificultad, localizacion from salida WHERE id=?");
+    $consulta_salida -> bindParam(1,$id);
+    $consulta_salida -> setFetchMode(PDO::FETCH_ASSOC);
+    $consulta_salida -> execute();
+    $datos_salida = $consulta_salida ->fetch();
     ?>
     <!-- Banner -->
     <main id="main">
-        <div class="container">
-            <div class="row">
-                <div class="p-2 col-md-8">
-                    <div class="titulo">
+        <div class="container ">
+            <div class="row pt-3">
+                <div class="col-md-8">
+                    <div class="titulo" style="background: url(assets/img/salidas/<?=$datos_salida['imagen']?>) center center; background-size: cover;">
                         <div class="texto-titulo w-30 p-5">
-                            <h1>Salida a Torcal de Antequera</h1>
+                            <h1><?= $datos_salida['titulo']?></h1>
                         </div>
                     </div>
                     <div class="descripcion-general fondo-secundario p-5">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem quo impedit voluptates voluptate veniam nulla. Nihil tempora distinctio inventore quam, tenetur commodi facilis qui quo illum quisquam sequi iusto beatae provident totam officia at porro. Ad cupiditate mollitia eligendi aperiam id saepe ea, sapiente ut expedita est beatae voluptatibus ipsum.</p>
+                        <p><?= $datos_salida['descripcion_corta']?></p>
                     </div>
                     <div class="d-flex justify-content-between">
                         <div class="w-100 py-2 pl-0 pr-1">
@@ -56,15 +63,15 @@ include 'assets/php/functions.php'
                     </div>
                 </div>
                 
-                <div class="col-md-4 p-2">
+                <div class="col-md-4">
                     <div class="sidebar">
                         <h2>Informe técnico</h2>
                         <div class="separador"></div>
-                        <p class="sidebar-item">Dificultad: Media</p>
+                        <p class="sidebar-item">Dificultad: <?= $datos_salida['dificultad']?></p>
                         <div class="separador-secundario"></div>
                         <p class="sidebar-item">Duración: 3 días</p>
                         <div class="separador-secundario"></div>
-                        <p class="sidebar-item">Localización: Torcal de Antequera</p>
+                        <p class="sidebar-item">Localización: <?= $datos_salida['localizacion']?></p>
  
 
                         <ul class="mt-5">
@@ -86,10 +93,9 @@ include 'assets/php/functions.php'
     </main>
     <?php
     footer();
+    $conexion=null;
     ?>
 
 
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 </html>

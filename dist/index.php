@@ -9,39 +9,56 @@ include 'assets/php/functions.php'
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goyo Adventures | Inicio</title>
     <?php
-    // import_css();
-    // import_js_head();
-
-    
+    import_css();
+    import_js_head();    
     ?>
-    <!-- CSS only -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src='https://kit.fontawesome.com/0c2b6b3736.js' crossorigin='anonymous'></script>
-
-<!-- JS, Popper.js, and jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> -->
-
-       
+    <script type="text/javascript" src="assets/js/app.js"></script>      
 </head>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="assets/js/app.js"></script> 
+    
 <body>
     <?php
     menu();
+    $conexion = conectarBD();
+    $consulta_barranquismo= $conexion -> prepare("SELECT id, nombre, descripcion from categoria WHERE id=1");
+    $consulta_barranquismo -> setFetchMode(PDO::FETCH_ASSOC);
+    $consulta_barranquismo -> execute();
+    $datos_barranquismo = $consulta_barranquismo ->fetch();
+
+    $consulta_caballos= $conexion -> prepare("SELECT id, nombre, descripcion from categoria WHERE id=2");
+    $consulta_caballos -> setFetchMode(PDO::FETCH_ASSOC);
+    $consulta_caballos -> execute();
+    $datos_caballos = $consulta_caballos ->fetch();
+
+    $consulta_4x4= $conexion -> prepare("SELECT id, nombre, descripcion from categoria WHERE id=3");
+    $consulta_4x4 -> setFetchMode(PDO::FETCH_ASSOC);
+    $consulta_4x4 -> execute();
+    $datos_4x4 = $consulta_4x4 ->fetch();
+
+    $consulta_senderismo= $conexion -> prepare("SELECT id, nombre, descripcion from categoria WHERE id=4");
+    $consulta_senderismo -> setFetchMode(PDO::FETCH_ASSOC);
+    $consulta_senderismo -> execute();
+    $datos_senderismo = $consulta_senderismo ->fetch();
+
+    $consulta_bicicleta= $conexion -> prepare("SELECT id, nombre, descripcion from categoria WHERE id=5");
+    $consulta_bicicleta -> setFetchMode(PDO::FETCH_ASSOC);
+    $consulta_bicicleta -> execute();
+    $datos_bicicleta = $consulta_bicicleta ->fetch();
+    
     ?>
     <!-- Banner -->
     <main id="main">
     <section carrousel>
-  
+        <?php 
+               
+        
+        ?>
         <input id="slide-0" name="carrousel" type="radio" checked/>
         <div class="slide" style="background: url(assets/img/banner/barranquismo.jpg) center center; background-size: cover;">
             <label for="slide-3" class="back">◀</label>
             <div class="slide-content">
-            <h1>Barranquismo</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam et cumque temporibus consequuntur voluptatem asperiores dolor, nihil enim totam molestiae.</p>
-            <button class="boton"><a href="">Descubre</a></button>
+                <h1><?= $datos_barranquismo['nombre']?></h1>
+                <p><?= $datos_barranquismo['descripcion']?></p>
+                <button class="boton"><a href="categories.php?id=<?=$datos_barranquismo['id']?>">Descubre</a></button>
             </div>
             <label for="slide-1" class="forward">▶</label>
         </div>
@@ -50,9 +67,9 @@ include 'assets/php/functions.php'
         <div class="slide" style="background: url(assets/img/banner/caballos.jpg) center center; background-size: cover;">
             <label for="slide-0" class="back">◀</label>
             <div class="slide-content">
-            <h1>Caballos</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam et cumque temporibus consequuntur voluptatem asperiores dolor, nihil enim totam molestiae.</p>
-            <button class="boton"><a href="">Descubre</a></button>
+            <h1><?= $datos_caballos['nombre']?></h1>
+            <p><?= $datos_caballos['descripcion']?></p>
+            <button class="boton"><a href="categories.php?id=<?=$datos_caballos['id']?>">Descubre</a></button>
             </div>
             <label for="slide-2" class="forward">▶</label>
         </div>
@@ -61,9 +78,9 @@ include 'assets/php/functions.php'
         <div class="slide" style="background: url(assets/img/banner/4x4.jpg) center center; background-size: cover;">
             <label for="slide-1" class="back">◀</label>
             <div class="slide-content">
-            <h1>4x4</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam et cumque temporibus consequuntur voluptatem asperiores dolor, nihil enim totam molestiae.</p>
-            <button class="boton"><a href="">Descubre</a></button>
+            <h1><?= $datos_4x4['nombre']?></h1>
+            <p><?= $datos_4x4['descripcion']?></p>
+            <button class="boton"><a href="categories.php?id=<?=$datos_4x4['id']?>">Descubre</a></button>
             </div>
             <label for="slide-3" class="forward">▶</label>
         </div>  
@@ -72,9 +89,9 @@ include 'assets/php/functions.php'
         <div class="slide" style="background: url(assets/img/banner/senderismo.jpg) center center; background-size: cover;">
             <label for="slide-2" class="back">◀</label>
             <div class="slide-content">
-            <h1>Senderismo</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam et cumque temporibus consequuntur voluptatem asperiores dolor, nihil enim totam molestiae.</p>
-            <button class="boton"><a href="">Descubre</a></button>
+            <h1><?= $datos_senderismo['nombre']?></h1>
+            <p><?= $datos_senderismo['descripcion']?></p>
+            <button class="boton"><a href="categories.php?id=<?=$datos_senderismo['id']?>">Descubre</a></button>
             </div>
             <label for="slide-4" class="forward">▶</label>
         </div>
@@ -83,13 +100,15 @@ include 'assets/php/functions.php'
         <div class="slide" style="background: url(assets/img/banner/ciclo.jpg) center center; background-size: cover;">
             <label for="slide-3" class="back">◀</label>
             <div class="slide-content">
-            <h1>Bicicleta</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam et cumque temporibus consequuntur voluptatem asperiores dolor, nihil enim totam molestiae.</p>
-            <button class="boton"><a href="">Descubre</a></button>
+            <h1><?= $datos_bicicleta['nombre']?></h1>
+            <p><?= $datos_bicicleta['descripcion']?></p>
+            <button class="boton"><a href="categories.php?id=<?=$datos_bicicleta['id']?>">Descubre</a></button>
             </div>
             <label for="slide-0" class="forward">▶</label>
         </div>
+        <?php
         
+        ?>
 </section>
 
         
@@ -208,7 +227,8 @@ include 'assets/php/functions.php'
     </main>
     <?php
     footer();
-    // import_js();
+    import_js();
+    $conexion=null;
     ?>
 
 </body>

@@ -8,43 +8,60 @@ include 'assets/php/functions.php'
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goyo Adventures | Inicio</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script type="text/javascript" src="assets/js/jquery.js"></script>
-    <script src="https://kit.fontawesome.com/0c2b6b3736.js" crossorigin="anonymous"></script>
+    <?php
+    import_css();
+    import_js_head();    
+    ?>
 </head>
 
 <body>
     <?php
     menu();
+    $conexion = conectarBD();
+    $id = $_GET['id'];
+
+    $consulta_categoria= $conexion -> prepare("SELECT id, nombre, imagen from categoria WHERE id=?");
+    $consulta_categoria -> bindParam(1,$id);
+    $consulta_categoria -> setFetchMode(PDO::FETCH_ASSOC);
+    $consulta_categoria -> execute();
+    $datos_categoria = $consulta_categoria ->fetch();
+
+    $consulta_salida= $conexion -> prepare("SELECT id, titulo, descripcion_corta, imagen, visible from salida WHERE categoria=?");
+    $consulta_salida -> bindParam(1,$id);
+    $consulta_salida -> setFetchMode(PDO::FETCH_ASSOC);
+    $consulta_salida -> execute();
+    
     ?>
     <!-- Banner -->
     <main id="main">
-        <div class="container">
+        <div class="container pt-3">
+
             <div class="row">
-                <div class="titulo">
-                    <div class="texto-titulo w-30 p-5">
-                        <h1>Barranquismo</h1>
+                <div class="titulo" style="background: url(assets/img/categorias/<?=$datos_categoria['imagen']?>) center center; background-size: cover;">
+                    <div  class="texto-titulo w-30 p-5">
+                        <h1><?= $datos_categoria['nombre']?></h1>
                     </div>
                 </div>
-            </div>
+            </div>            
         </div>
         <div class="container">
+        <?php
+            while($datos_salida = $consulta_salida -> fetch()){
+            if($datos_salida['visible']==0){
+
+            } else {
+
+            
+            ?>
             <div class="row">
                 <div class="col-md-12 salida">
-                    <div class="titulo-salida">
-                        <h2>Río Verde</h2>
-                        <button class="boton"type="button"><a href="token.php">Ver ficha</a></button>
+                    <div class="titulo-salida" >
+                        <h2><?=$datos_salida['titulo']?></h2>
+                        <button class="boton"type="button"><a href="token.php?id=<?=$datos_salida['id']?>">Ver ficha</a></button>
                     </div>
 
                     <div class="separador"></div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro minima non iure odit? Omnis, illo numquam ipsa inventore magni a blanditiis eaque? Ab voluptates quia nulla, fugit non iure molestias odit illo! Reprehenderit animi repellat molestias? Doloribus labore iste possimus officiis perspiciatis. Deserunt velit veritatis aliquid fugiat inventore, nulla molestias?</p>
+                    <p><?= $datos_salida['descripcion_corta']?></p>
                 </div>
 
                 <div class="col-md-4 imagen-categoria">
@@ -58,20 +75,20 @@ include 'assets/php/functions.php'
                 </div>
 
             </div>
+            <?php
+            }
+            }
+            ?>
         </div>
     </main>
         
 
     <?php
     footer();
+    import_js();
+    $conexion=null;
     ?>
 
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -26,7 +26,7 @@ include 'assets/php/functions.php'
     $consulta_categoria -> execute();
     $datos_categoria = $consulta_categoria ->fetch();
 
-    $consulta_salida= $conexion -> prepare("SELECT id, titulo, descripcion_corta, imagen, visible from salida WHERE categoria=?");
+    $consulta_salida= $conexion -> prepare("SELECT id, titulo, descripcion_corta, imagen, dificultad, localizacion, visible from salida WHERE categoria=?");
     $consulta_salida -> bindParam(1,$id);
     $consulta_salida -> setFetchMode(PDO::FETCH_ASSOC);
     $consulta_salida -> execute();
@@ -61,10 +61,45 @@ include 'assets/php/functions.php'
                     </div>
 
                     <div class="separador"></div>
-                    <p><?= $datos_salida['descripcion_corta']?></p>
+                    <div>
+                        <p><?= $datos_salida['descripcion_corta']?></p>
+                        <div class="datos-salida">
+                            <p>Dificultad:<?php 
+                            switch ($datos_salida['dificultad']){
+                                case 1:
+                                    ?>
+                                    <i class="fas fa-mountain"></i>
+                                    <?php
+                                break;
+                                case 2:
+                                    ?>
+                                    <i class="fas fa-mountain"></i><i class="fas fa-mountain"></i>
+                                    <?php
+                                break;
+                                case 3:
+                                    ?>
+                                    <i class="fas fa-mountain"></i><i class="fas fa-mountain"></i><i class="fas fa-mountain"></i>
+                                    <?php
+                                break;
+                                case 4:
+                                    ?>
+                                    <i class="fas fa-mountain"></i><i class="fas fa-mountain"></i><i class="fas fa-mountain"></i><i class="fas fa-mountain"></i>
+                                    <?php
+                                break;
+                                case 5:
+                                    ?>
+                                    <i class="fas fa-mountain"></i><i class="fas fa-mountain"></i><i class="fas fa-mountain"></i><i class="fas fa-mountain"></i><i class="fas fa-mountain"></i>
+                                    <?php
+                                break;
+                        } ?></p>
+                        <p class="sidebar-item"><p><i class="fas mr-2 fa-map-marked-alt"></i>Localizacion: <?= $datos_salida['localizacion']?></p>
+                        
+                        </div>
+                    </div>
+                    
                 </div>
 
-                <div class="col-md-4 imagen-categoria">
+                <!-- <div class="col-md-4 imagen-categoria">
                     <img src="assets/img/ALTIPLANO.jpg" alt="">
                 </div>
                 <div class="col-md-4 imagen-categoria">
@@ -72,7 +107,7 @@ include 'assets/php/functions.php'
                 </div>
                 <div class="col-md-4 imagen-categoria">
                     <img src="assets/img/ALTIPLANO.jpg" alt="">
-                </div>
+                </div> -->
 
             </div>
             <?php

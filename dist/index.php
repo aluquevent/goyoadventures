@@ -117,7 +117,7 @@ include 'assets/php/functions.php'
     <!-- Aventuras -->
     <section id="aventuras">
         <div class="container mb-5">
-            <div class="row">
+            <div class="row section-titular">
                 <h2>¡Elige tu aventura!</h2>
                 <div class="separador"></div>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor modi sed eum doloremque ratione maiores nobis laudantium debitis soluta voluptatem.</p>    
@@ -166,7 +166,7 @@ include 'assets/php/functions.php'
     </section>
     <section id="profesionales">
         <div class="container">
-            <div class="row">
+            <div class="row section-titular">
                 <h2>Profesionales</h2>
                 <div class="col-12 separador"></div>
             </div>            
@@ -174,17 +174,24 @@ include 'assets/php/functions.php'
         <div class="fondo-azulOsc">
             <div class="container">            
                 <div class="row">
-                    <div class="col-md-6 p-0 col-12">
+                    <div id="goyo" class="col-md-6 p-0 col-12 section-titular">
                         <h3>Goyo Garrido</h3>
                         <p>Coordinador</p>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus nihil ipsum debitis, porro delectus est qui quisquam explicabo fugiat!</p>
+                        <button class="boton fondo-azul"><a href="about.php">Conócenos</a></button>
+                    </div>
+                    <div id="esmeralda" class="d-none col-md-6 p-0 col-12 section-titular">
+                        <h3>Esmeralda</h3>
+                        <p>Coordinadora</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus nihil ipsum debitis, porro delectus est qui quisquam explicabo fugiat!</p>
+                        <button class="boton fondo-azul" href="about.php"><a href="about.php">Conócenos</a></button>
                     </div>
                     <div class="col-md-6 p-0 col-12 image-block">
                         <div>
-                            <img src="assets/img/SIERRA_NEVADA.jpg" alt="">
+                            <img id="goyo-img" src="assets/img/SIERRA_NEVADA.jpg" alt="">
                         </div>
                         <div>
-                            <img src="assets/img/SIERRA_NEVADA.jpg" alt="">
+                            <img id="esmeralda-img" src="assets/img/SIERRA_NEVADA.jpg" alt="">
                         </div>
                     </div>
                 </div>                

@@ -14,14 +14,22 @@ $conexion = conectarBD();
     import_js_head();
     ?>
 </head>
-<body>
-    <form action="#" method="POST">
-        <label for="usuario">Nombre de usuario</label>
-        <input type="text" name="usuario" id="usuario">
-        <label for="pass">Contraseña</label>
-        <input type="password" name="pass" id="pass">
-        <button type="submit" name="acceso">Iniciar sesión</button>
-    </form>
+<body id="acceso">
+    <div class="container">
+        <div class="row login">
+            <div class="login-panel col-8">
+            <h1><a class="logo logo-light"  href="index.php"><span>Goyo</span>Adventures</a></h1>
+            <form action="#" method="POST">
+                <label for="usuario">Nombre de usuario</label>
+                <input type="text" name="usuario" id="usuario">
+                <label for="pass">Contraseña</label>
+                <input type="password" name="pass" id="pass">
+                <button type="submit" class="boton" name="acceso">Iniciar sesión</button>
+            </form>
+            </div>
+        </div>
+    </div>
+    
 
     <?php
 
@@ -41,10 +49,10 @@ $conexion = conectarBD();
                 $_SESSION['usuario']=$datos_usuario['usuario'];
                 echo "<meta http-equiv='refresh' content='0; url=crud/salidas/salidas.php'>";
             } else {
-                echo "<p>Datos incorrectos 1</p>";
+                // echo "<p>Datos incorrectos 1</p>";
             }
         } else {
-            echo "<p>Datos incorrectos 2</p>";
+            // echo "<p>Datos incorrectos 2</p>";
         }
 
     }

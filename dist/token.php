@@ -19,7 +19,7 @@ include 'assets/php/functions.php'
 
     $id = $_GET['id'];
 
-    $consulta_salida= $conexion -> prepare("SELECT titulo, descripcion_corta, imagen, dificultad, localizacion from salida WHERE id=?");
+    $consulta_salida= $conexion -> prepare("SELECT titulo, descripcion_corta, imagen, dificultad, localizacion, link_maps from salida WHERE id=?");
     $consulta_salida -> bindParam(1,$id);
     $consulta_salida -> setFetchMode(PDO::FETCH_ASSOC);
     $consulta_salida -> execute();
@@ -67,12 +67,39 @@ include 'assets/php/functions.php'
                     <div class="sidebar">
                         <h2>Informe técnico</h2>
                         <div class="separador"></div>
-                        <p class="sidebar-item">Dificultad: <?= $datos_salida['dificultad']?></p>
+                        <p class="sidebar-item"> Dificultad <?php 
+                            switch ($datos_salida['dificultad']){
+                                case 1:
+                                    ?>
+                                    <i class="fas fa-mountain"></i>
+                                    <?php
+                                break;
+                                case 2:
+                                    ?>
+                                    <i class="fas fa-mountain"></i><i class="fas fa-mountain"></i>
+                                    <?php
+                                break;
+                                case 3:
+                                    ?>
+                                    <i class="fas fa-mountain"></i><i class="fas fa-mountain"></i><i class="fas fa-mountain"></i>
+                                    <?php
+                                break;
+                                case 4:
+                                    ?>
+                                    <i class="fas fa-mountain"></i><i class="fas fa-mountain"></i><i class="fas fa-mountain"></i><i class="fas fa-mountain"></i>
+                                    <?php
+                                break;
+                                case 5:
+                                    ?>
+                                    <i class="fas fa-mountain"></i><i class="fas fa-mountain"></i><i class="fas fa-mountain"></i><i class="fas fa-mountain"></i><i class="fas fa-mountain"></i>
+                                    <?php
+                                break;
+                        } ?></p>
                         <div class="separador-secundario"></div>
                         <p class="sidebar-item">Duración: 3 días</p>
                         <div class="separador-secundario"></div>
-                        <p class="sidebar-item">Localización: <?= $datos_salida['localizacion']?></p>
- 
+                        <p class="sidebar-item"><p><i class="fas mr-2 fa-map-marked-alt"></i>Localizacion: <?= $datos_salida['localizacion']?></p>
+                        <iframe src="<?=$datos_salida['link_maps']?>" frameborder="0"></iframe>
 
                         <ul class="mt-5">
                             <h3>Incluye</h3>

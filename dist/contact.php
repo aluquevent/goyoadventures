@@ -27,7 +27,7 @@ include 'assets/php/functions.php'
                     <div class="separador"></div>
                 </div>
                 <div class="row contacto">
-                    <div class="col-6 info">
+                    <div class="col-12 col-md-6 info">
                         <h3 class="w-100">Déjame un mensaje y me pondré en contacto</h3>
                         <div class="contact-info">
                             <div>
@@ -39,7 +39,7 @@ include 'assets/php/functions.php'
                         </div>
                         
                     </div>
-                    <div class="col-6 formulario">
+                    <div class="col-md-6 col-12 formulario">
                         <form action="contacto.php" method="POST">
                             <input type="text" name="nombre" id="nombre" placeholder="Nombre">
                             <input type="email" name="email" id="email" placeholder="Email">
@@ -51,8 +51,6 @@ include 'assets/php/functions.php'
                 </div>
             </div>
             </section>
-
-
     </main>
     <?php
     footer();

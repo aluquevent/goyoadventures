@@ -41,10 +41,10 @@ function menu(){
             <div class="container pl-0">            
                 <div class="row w-100 ml-0">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon">&#9776;</span>
                 </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">                                        
-                        <nav class="w-100">                            
+                        <nav class="w-100 responsive">                            
                             <a href="categories.php?id=<?=$datos_barranquismo['id']?>">Barranquismo</a>
                             <a href="categories.php?id=<?=$datos_bicicleta['id']?>">Bicicleta</a>
                             <a href="categories.php?id=<?=$datos_caballos['id']?>">Caballos</a>
@@ -90,7 +90,7 @@ function footer(){
     ?>
     <footer id="footer">
         <div class="container">
-            <div class="row">
+            <div class="row responsive-footer">
                 <div class="col-md-4">
                     <h2><a class="logo logo-light" href="index.php"><span>Goyo</span>Adventures</a></h2>
                 </div>
@@ -176,6 +176,29 @@ function extension_imagen($tipo_imagen){
     return $extension;
 }
 
+function menu_crud(){
+    ?>
+    <header class="mb-5">
+        <!-- Nav -->
+        <div class="navbar navbar-expand-lg">
+        <h1 class="ml-5"><a class="logo logo-light"  href="index.php"><span>Goyo</span>Adventures</a></h1>   
+            <div class="container pl-0">            
+                <div class="row w-50 ml-0">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">&#9776;</span>
+                </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">                                        
+                        <nav class="w-50 responsive">                            
+                            <a href="../salidas/salidas.php">Salidas</a>
+                            <a href="../categorias/categorias.php">Categorías</a>
+                        </nav>
+                        </div>                                  
+                </div>
+            </div>        
+        </div>
+    </header>
+    <?php        
+}
 
 
 

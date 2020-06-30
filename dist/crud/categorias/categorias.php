@@ -16,6 +16,7 @@ $conexion = conectarBD();
 </head>
 <body>
     <?php
+    menu_crud();
     if(isset($_GET['id'])){
         $consulta_borrar = $conexion -> prepare("DELETE FROM categoria WHERE id=?");
         $id = $_GET['id'];

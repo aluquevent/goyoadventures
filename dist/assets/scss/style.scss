@@ -161,17 +161,24 @@ section{
     }
 }
 
+
 section#profesionales{
+
     div{
         div{
             div{
+                
                 h3{
                     padding: 50px;
-                    padding-left: 0;
+                    padding-left: 10px;
                     padding-bottom: 0px;
                     color:$azul;
+                    font-size: 1.8rem;
+                    font-style: italic;
+                    font-weight: 800;
                 }
                 p{
+                    padding-left: 10px;
                     color:$blanco;
                 }
             }
@@ -379,7 +386,7 @@ footer#footer{
             justify-content: space-between;
             a{
                 color:$principal;
-                font-size: 1.6rem;
+                font-size: 1.4rem;
             }
         }
 }
@@ -432,6 +439,8 @@ footer#footer{
       transition: opacity 1s;
       padding: 10px 30% 10px 30%;
       background-color: $azulOscOp;
+      width: 100%;
+      text-align: center;
     }
     
     .back,
@@ -473,6 +482,7 @@ footer#footer{
   //cool stuff stops here
   [carrousel] {
     text-align: center;
+    width: 100%;
     h1 {
       font-size: 4rem;
       color: $principal;
@@ -483,9 +493,85 @@ footer#footer{
         
     }
   }
+  body#acceso{
+      background-color: $secundario;
+  }
+  .login{
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 50px 0 50px;
+      
+      .login-panel{
+        padding: 50px 0 50px 0;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: $azulOsc;
+        border-radius: 10px;
+        form{
+            margin-top: 50px;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            label{
+                color:$blanco;
+            }
+            input{
+                width: 100%;
+                margin-bottom: 10px;
+                background-color: $grisOp;
+                padding: 15px;
+                border-radius: 5px;
+                border:none;            
+                border-bottom: 3px solid $principal;
+                &:focus{
+                    background-color: $gris;
+                    outline:none;
+                }
+            }
+            button{
+                margin-top: 20px;
+            }
+            
+        }
+      }
+  }
+
+  .datos-salida{
+      display: flex;
+      width: 50%;
+      border: 2px $principal solid;
+      justify-content: stretch;
+      align-items: center;
+      padding:10px 10px 10px 10px;
+      p{
+          margin-right: 30px;
+          margin-bottom: 0px;
+      }
+  }
   @media only screen and (max-width:768px){
     body{
         font-size:16px;
+    }
+    .responsive{
+        padding-left: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    .image-block{
+        
+        
+        div{
+            img{
+                width: 100%;
+            }
+            
+            
+        }
     }
   }
 
@@ -493,4 +579,37 @@ footer#footer{
     body{
         font-size:14px;
     }
+    h1{
+        font-size: 1.7rem !important;
+    }
+    a{
+        font-size: 1.2rem !important;
+    }
+
+    .slide-content{
+        
+        padding: 10px 20px 10px 20px !important;
+        p{
+            padding:0px 30px 0px 30px !important;
+        }
+    }
+    .section-titular{
+        padding: 0 5px 0 5px !important;
+    }
+    .responsive{
+        padding-left: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .responsive-footer{
+        div{
+            margin-bottom: 15px;
+            a.logo{
+                font-size: 1.5rem !important;
+            }
+        }
+    }
+            
   }

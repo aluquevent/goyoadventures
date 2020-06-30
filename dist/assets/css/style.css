@@ -1411,12 +1411,16 @@ section {
 
 section#profesionales div div div h3 {
   padding: 50px;
-  padding-left: 0;
+  padding-left: 10px;
   padding-bottom: 0px;
   color: #177078;
+  font-size: 1.8rem;
+  font-style: italic;
+  font-weight: 800;
 }
 
 section#profesionales div div div p {
+  padding-left: 10px;
   color: #f5f5f5;
 }
 
@@ -1634,7 +1638,7 @@ footer#footer .contacto-footer {
 
 footer#footer .contacto-footer a {
   color: #C58911;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 
 [carrousel] {
@@ -1682,6 +1686,8 @@ footer#footer .contacto-footer a {
   transition: opacity 1s;
   padding: 10px 30% 10px 30%;
   background-color: #16262e86;
+  width: 100%;
+  text-align: center;
 }
 
 [carrousel] .back,
@@ -1720,6 +1726,7 @@ footer#footer .contacto-footer a {
 
 [carrousel] {
   text-align: center;
+  width: 100%;
 }
 
 [carrousel] h1 {
@@ -1732,14 +1739,116 @@ footer#footer .contacto-footer a {
   color: #f5f5f5;
 }
 
+body#acceso {
+  background-color: #BFB48F;
+}
+
+.login {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 50px 0 50px;
+}
+
+.login .login-panel {
+  padding: 50px 0 50px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #16262E;
+  border-radius: 10px;
+}
+
+.login .login-panel form {
+  margin-top: 50px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.login .login-panel form label {
+  color: #f5f5f5;
+}
+
+.login .login-panel form input {
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: #e1dee388;
+  padding: 15px;
+  border-radius: 5px;
+  border: none;
+  border-bottom: 3px solid #C58911;
+}
+
+.login .login-panel form input:focus {
+  background-color: #E1DEE3;
+  outline: none;
+}
+
+.login .login-panel form button {
+  margin-top: 20px;
+}
+
+.datos-salida {
+  display: flex;
+  width: 50%;
+  border: 2px #C58911 solid;
+  justify-content: stretch;
+  align-items: center;
+  padding: 10px 10px 10px 10px;
+}
+
+.datos-salida p {
+  margin-right: 30px;
+  margin-bottom: 0px;
+}
+
 @media only screen and (max-width: 768px) {
   body {
     font-size: 16px;
+  }
+  .responsive {
+    padding-left: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .image-block div img {
+    width: 100%;
   }
 }
 
 @media only screen and (max-width: 425px) {
   body {
     font-size: 14px;
+  }
+  h1 {
+    font-size: 1.7rem !important;
+  }
+  a {
+    font-size: 1.2rem !important;
+  }
+  .slide-content {
+    padding: 10px 20px 10px 20px !important;
+  }
+  .slide-content p {
+    padding: 0px 30px 0px 30px !important;
+  }
+  .section-titular {
+    padding: 0 5px 0 5px !important;
+  }
+  .responsive {
+    padding-left: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .responsive-footer div {
+    margin-bottom: 15px;
+  }
+  .responsive-footer div a.logo {
+    font-size: 1.5rem !important;
   }
 }

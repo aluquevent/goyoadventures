@@ -54,7 +54,7 @@ include 'assets/php/functions.php'
         ?>
         <input id="slide-0" name="carrousel" type="radio" checked/>
         <div class="slide" style="background: url(assets/img/banner/barranquismo.jpg) center center; background-size: cover;">
-            <label for="slide-3" class="back">◀</label>
+            <label for="slide-4" class="back">◀</label>
             <div class="slide-content">
                 <h1><?= $datos_barranquismo['nombre']?></h1>
                 <p><?= $datos_barranquismo['descripcion']?></p>
@@ -97,7 +97,7 @@ include 'assets/php/functions.php'
         </div>
 
         <input id="slide-4" name="carrousel" type="radio" />
-        <div class="slide" style="background: url(assets/img/banner/ciclo.jpg) center center; background-size: cover;">
+        <div class="slide" style="background: url(assets/img/banner/bicicleta.jpg) center center; background-size: cover;">
             <label for="slide-3" class="back">◀</label>
             <div class="slide-content">
             <h1><?= $datos_bicicleta['nombre']?></h1>
@@ -127,7 +127,7 @@ include 'assets/php/functions.php'
             <div class="container-fluid">         
                 <div class="row">    
                     <div class="col-md-6 col-12 p-0 bloque-imagen-texto">
-                        <img class="" src="assets/img/Senderismo_en_Sierra_Nevada_Loma_Papeles_Güéjar_Sierra_IMG_9105_A3.jpg" alt="">
+                        <img class="" src="assets/img/SIERRA_NEVADA.jpg" alt="">
                     </div>                             
                     <div class="col-md-6 col-12 p-5 bloque-imagen-texto">
                         <h4 class="mb-3">Lorem ipsum dolor sit amet.</h4>
@@ -144,7 +144,7 @@ include 'assets/php/functions.php'
                         <p class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed ut consectetur repellendus soluta officia neque nesciunt ex magnam voluptas?</p>
                     </div>                                                   
                     <div class="order-0 order-md-1 col-md-6 col-12 p-0 bloque-imagen-texto">
-                        <img class="" src="assets/img/EL_MARQUESADO.jpg" alt="">
+                        <img class="" src="assets/img/MARQUESADO.jpg" alt="">
                     </div>                             
                 </div>
             </div>
@@ -153,7 +153,7 @@ include 'assets/php/functions.php'
             <div class="container-fluid p-0">         
                 <div class="row">    
                     <div class="col-md-6 col-12 p-0 bloque-imagen-texto">
-                        <img class="" src="assets/img/Descenso_de_barrancos_Río_Verde_RAUL2-817.jpg" alt="">
+                        <img class="" src="assets/img/DESCENSO_BARRANCOS.jpg" alt="">
                     </div>                             
                     <div class="col-md-6 col-12 p-5 bloque-imagen-texto">
                         <h4 class="mb-3">Lorem ipsum dolor sit amet.</h4>
@@ -180,10 +180,10 @@ include 'assets/php/functions.php'
                     </div>
                     <div class="col-md-6 p-0 col-12 image-block">
                         <div>
-                            <img src="assets/img/Cicloturismo_en_Granada_MTB.jpg" alt="">
+                            <img src="assets/img/SIERRA_NEVADA.jpg" alt="">
                         </div>
                         <div>
-                            <img src="assets/img/Cicloturismo_en_Granada_MTB.jpg" alt="">
+                            <img src="assets/img/SIERRA_NEVADA.jpg" alt="">
                         </div>
                     </div>
                 </div>                

@@ -1,9 +1,9 @@
 <?php
 session_start();
 include '../../assets/php/functions.php';
-// if(!isset($_SESSION['nombre']) || $_SESSION['tipo']!="administrador"){
-    // echo "<meta http-equiv='refresh' content='0; url=../../index.php'>";
-// }else{
+if(!isset($_SESSION['id'])){
+    echo "<meta http-equiv='refresh' content='0; url=../../index.php'>";
+}else{
     ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -110,5 +110,5 @@ include '../../assets/php/functions.php';
 </body>
 </html>
 <?php
-// }
+}
 ?>

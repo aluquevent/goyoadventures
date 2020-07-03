@@ -31,11 +31,14 @@ include 'assets/php/functions.php'
                         <h3 class="w-100">Déjame un mensaje y me pondré en contacto</h3>
                         <div class="contact-info">
                             <div>
-                                 <a href="tel:+655443321"><i class="fab fa-whatsapp mr-3"></i>654 34 34 23</a>
+                                 <a href="tel:+679529844"><i class="fas fa-phone mr-3"></i>679 52 98 44</a>
                             </div>
                             <div>
-                                <a href="mailto:tobinhere@gmail.com"><i class="far fa-envelope mr-3"></i>tobinhere@gmail.com</a>
+                                <a target="_blank" href="https://wa.link/yedscm"><i class="fab fa-whatsapp mr-3"></i>679 52 98 44</a>
                             </div>
+                            <div>
+                                <a href="mailto:tobinere@hotmail.com"><i class="far fa-envelope mr-3"></i>tobinere@hotmail.com</a>
+                            </div>                            
                         </div>
                         
                     </div>

@@ -55,7 +55,7 @@ $conexion = conectarBD();
             } else {
                 echo "<td>No</td>";
             }
-            echo "<td><button class='btn btn-success'><a href='editar-categoria.php?id=$datos[id]'>Editar</a></button></td>
+            echo "<td><button class='btn btn-success'><a href='editar_categoria.php?id=$datos[id]'>Editar</a></button></td>
             <td><button class='btn btn-danger'><a class='borrar' href='categorias.php?id=$datos[id]'>Borrar</a></button></td>
             </tr>";
         }

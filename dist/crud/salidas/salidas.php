@@ -72,7 +72,7 @@ $conexion = conectarBD();
                 echo "<td>No</td>";
             }
             
-            echo "<td><button class='btn btn-success'><a href='editar-salida.php?id=$datos[id]'>Editar</a></button></td>
+            echo "<td><button class='btn btn-success'><a href='editar_salida.php?id=$datos[id]'>Editar</a></button></td>
             <td><button class='btn btn-danger'><a class='borrar' href='salidas.php?id=$datos[id]'>Borrar</a></button></td>
             </tr>";
         }

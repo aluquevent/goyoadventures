@@ -195,7 +195,6 @@ section#aventuras{
     padding: 10px 0 10px 0;
 
     .imagen-perfil{
-
         border-radius: 100%;
 
     }
@@ -337,6 +336,9 @@ section#profesionales{
             font-style: normal;
         }
     }
+    iframe{
+        width: 100%;
+    }
     
 }
 
@@ -345,11 +347,10 @@ section#profesionales{
 .imagen-dia{
     display: flex;
     align-items: center;
-    justify-content: center;
-    
+    justify-content: center;    
     height: 200px;
     width: 100%;
-    @include fondo($url:"../img/ALTIPLANO.jpg");
+    
     p{
         width: 100%;
         padding:10px;
@@ -462,7 +463,21 @@ footer#footer{
         }
 }
 
-
+.llamar{
+    
+    position: fixed;
+    bottom: 2.5%;
+    left: 85%;
+    min-height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    background-color: $verde-whatsapp;
+    text-align: center;
+    color: $blanco;
+    z-index: 1000;
+    line-height: 55px;
+    font-size: 25px;
+}
 
     
 

@@ -78,7 +78,7 @@ function menu($page){
                 
             </div>                
         </nav>
-        
+        <a class="llamar" href="tel:tel:+679529844"><i class="fas fa-phone"></i></a>        
     </header>
     <?php
 }

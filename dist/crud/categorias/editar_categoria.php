@@ -93,11 +93,11 @@ if(!isset($_SESSION['id'])){
 
             $consulta -> bindParam(1,$nombre);
             $consulta -> bindParam(2,$descripcion);
-            $consulta -> bindParam(1,$nombre);
-            $consulta -> bindParam(2,$descripcion);
-            $consulta -> bindParam(3,$imagen);
-            $consulta -> bindParam(4,$visible);    
-            $consulta -> bindParam(5,$id);    
+            $consulta -> bindParam(3,$nombre_en);
+            $consulta -> bindParam(4,$descripcion_en);
+            $consulta -> bindParam(5,$imagen);
+            $consulta -> bindParam(6,$visible);    
+            $consulta -> bindParam(7,$id);    
     
             $consulta -> execute();
     

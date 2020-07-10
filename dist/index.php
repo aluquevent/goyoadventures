@@ -65,7 +65,7 @@ if($_COOKIE['idioma']=="es"){
             
             ?>
             <!-- Banner -->
-            <main id="main">
+            <main id="main">            
             <div class="slider">
                 <div class="slide_viewer">
                     <div class="slide_group">
@@ -229,7 +229,7 @@ if($_COOKIE['idioma']=="es"){
                                     <a href="tel:+679529844"><i class="fas fa-phone mr-3"></i>679 52 98 44</a>
                                 </div>
                                 <div>
-                                    <a target="_blank" href="https://wa.link/yedscm"><i class="fab fa-whatsapp-square mr-3"></i></i></i>679 52 98 44</a>
+                                    <a target="_blank" href="https://wa.link/yedscm"><i class="fab fa-whatsapp-square mr-3"></i>679 52 98 44</a>
                                 </div>
                                 <div>
                                     <a href="mailto:tobinere@hotmail.com"><i class="far fa-envelope mr-3"></i>tobinere@hotmail.com</a>

@@ -47,6 +47,10 @@ if(!isset($_SESSION['id'])){
                     <label for="descripcion">Descripcion</label>
                     <textarea class="form-control" id="descripcion" name="descripcion"><?= $datos_salida['descripcion_corta'] ?></textarea>
                 </div>
+                <div class="form-group">                   
+                    <label for="descripcion">Descripcion en inglés</label>
+                    <textarea class="form-control" id="descripcion_en" name="descripcion_en"><?= $datos_salida['desc_corta_en'] ?></textarea>
+                </div>
                 <div class="form-group">
                     <label for="categoria">Categoría</label>
                     <select class="custom-select" name="categoria" id="inputGroupSelect01">
@@ -58,10 +62,11 @@ if(!isset($_SESSION['id'])){
                     while($datos_categoria = $consulta_categorias -> fetch()){
                         if($datos_salida['categoria']==$datos_categoria['id']){
                             echo "
-                            <option value='$datos_categoria[id]'>$datos_categoria[nombre] selected></option>";
-                        }
+                            <option value='$datos_categoria[id]' selected>$datos_categoria[nombre]</option>";
+                        }else{
                         echo "
-                        <option value='$datos_categoria[id]'>$datos_categoria[nombre] selected></option>";
+                        <option value='$datos_categoria[id]'>$datos_categoria[nombre]</option>";
+                        }
                     }                
                     ?>
                     </select>
@@ -124,13 +129,6 @@ if(!isset($_SESSION['id'])){
                     </div>
                 </div>
 
-                <!-- <div class="form-group"> 
-                    <label for="dia1_imagen">Seleccionar imagen de vista previa para el día 1</label>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="dia1_imagen" name="dia1_imagen">
-                        <label class="custom-file-label" for="dia1_imagen">Seleccionar imagen</label>
-                    </div>
-                </div> -->
                     <br>
                     <div class="form-check">
                     <?php    
@@ -149,11 +147,12 @@ if(!isset($_SESSION['id'])){
     
         <?php 
         if(isset($_POST['actualizar'])){
-            $consulta = $conexion -> prepare("UPDATE salida SET titulo=?, descripcion_corta=?, categoria=?, localizacion=? link_maps=?, imagen=?, punto_encuentro=?, max_personas=?, epoca=?, dificultad=?, visible=? WHERE id=?");
+            $consulta = $conexion -> prepare("UPDATE salida SET titulo=?, descripcion_corta=?, categoria=?, localizacion=?, link_maps=?, imagen=?, punto_encuentro=?, max_personas=?, epoca=?, dificultad=?, visible=?, desc_corta_en=? WHERE id=?");
     
             
             $titulo             =$_POST['nombre'];
             $descripcion        =$_POST['descripcion'];
+            $descripcion_en        =$_POST['descripcion_en'];
             $categoria          =$_POST['categoria'];
             $ubicacion          =$_POST['ubicacion'];
             $maps               =$_POST['googlemaps_encuentro'];
@@ -178,7 +177,8 @@ if(!isset($_SESSION['id'])){
             $consulta -> bindParam(9,$epoca);
             $consulta -> bindParam(10,$dificultad);
             $consulta -> bindParam(11,$visible); 
-            $consulta -> bindParam(12,$id); 
+            $consulta -> bindParam(12,$descripcion_en); 
+            $consulta -> bindParam(13,$id); 
     
             $consulta -> execute();
     
@@ -200,9 +200,10 @@ if(!isset($_SESSION['id'])){
         
                 //Actualizamos nuestro curson con los nombres de las imágenes
         
-                $consulta_actualizacion=$conexion->prepare("UPDATE salida SET imagen=? where id=$id");
+                $consulta_actualizacion=$conexion->prepare("UPDATE salida SET imagen=? where id=?");
         
                 $consulta_actualizacion->bindParam(1, $nombre_imagen);
+                $consulta_actualizacion->bindParam(2, $id);
         
                 $consulta_actualizacion->execute();    
                 

@@ -17,7 +17,6 @@ if(!isset($_SESSION['id'])){
     import_js_head();
 
     ?>
-    <script src="../../assets/js/app.js"></script>
     <script src='../../assets/js/bootstrap.min.js'></script>
 </head>
 <body>
@@ -34,9 +33,17 @@ if(!isset($_SESSION['id'])){
                     <label for="nombre">Título categoría</label>
                     <input type="text" class="form-control" id="nombre" name="nombre">
                 </div>
+                <div class="form-group">                    
+                    <label for="nombre_en">Título categoría inglés</label>
+                    <input type="text" class="form-control" id="nombre_en" name="nombre_en">
+                </div>
                 <div class="form-group">                
                     <label for="descripcion">Descripción</label>
                     <textarea class="form-control" id="descripcion" name="descripcion"></textarea>
+                </div>
+                <div class="form-group">                
+                    <label for="descripcion_en">Descripción inglés</label>
+                    <textarea class="form-control" id="descripcion_en" name="descripcion_en"></textarea>
                 </div>
 
                 <label for="imagen">Seleccionar imagen de vista previa</label>
@@ -56,11 +63,13 @@ if(!isset($_SESSION['id'])){
 
     <?php 
     if(isset($_POST['crear'])){
-        $consulta = $conexion -> prepare("INSERT INTO categoria VALUES (?, ?, ?, ?, ?)");
+        $consulta = $conexion -> prepare("INSERT INTO categoria VALUES (?, ?, ?, ?, ?, ?, ?)");
 
         $id                 =null;
         $nombre             =$_POST['nombre'];
         $descripcion        =$_POST['descripcion'];
+        $nombre_en          =$_POST['nombre_en'];
+        $descripcion_en     =$_POST['descripcion_en'];
         $imagen             ="";
         $visible            =0;
         if(isset($_POST['visible'])){
@@ -70,8 +79,10 @@ if(!isset($_SESSION['id'])){
         $consulta -> bindParam(1,$id);
         $consulta -> bindParam(2,$nombre);
         $consulta -> bindParam(3,$descripcion);
-        $consulta -> bindParam(4,$imagen);
-        $consulta -> bindParam(5,$visible);    
+        $consulta -> bindParam(4,$nombre_en);
+        $consulta -> bindParam(5,$descripcion_en);
+        $consulta -> bindParam(6,$imagen);
+        $consulta -> bindParam(7,$visible);    
 
         $consulta -> execute();
 
@@ -94,15 +105,16 @@ if(!isset($_SESSION['id'])){
 
         //Actualizamos nuestro curson con los nombres de las imágenes
 
-        $consulta_actualizacion=$conexion->prepare("UPDATE categoria SET imagen=? where id=$id_categoria");
+        $consulta_actualizacion=$conexion->prepare("UPDATE categoria SET imagen=? where id=?");
 
         $consulta_actualizacion->bindParam(1, $nombre_imagen);
+        $consulta_actualizacion->bindParam(2, $id_categoria);
 
         $consulta_actualizacion->execute();
         
         $conexion = null;
 
-        echo "<meta http-equiv='refresh' content='0; url=categorias.php'>";
+        // echo "<meta http-equiv='refresh' content='0; url=categorias.php'>";
 
     }
     ?>

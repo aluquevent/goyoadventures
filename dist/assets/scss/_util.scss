@@ -1,4 +1,4 @@
-$colores: (crema:$crema, azul:$azul, secundario:$secundario, gris:$gris, azulOsc:$azulOsc, terracota:$terracota);
+$colores: (crema:$crema, azul:$azul, secundario:$secundario, gris:$gris, azulOsc:$azulOsc, azulOscOp:$azulOscOp, terracota:$terracota);
 
 @each $nombre,$color in $colores{
     .fondo-#{$nombre}{

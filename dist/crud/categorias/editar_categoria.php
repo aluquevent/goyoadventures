@@ -46,6 +46,14 @@ if(!isset($_SESSION['id'])){
                         <label for="descripcion">Descripción</label>
                         <textarea class="form-control" id="descripcion" name="descripcion"><?= $datos_categoria['descripcion']?></textarea>
                     </div>
+                    <div class="form-group">                    
+                        <label for="nombre">Título categoría inglés</label>
+                        <input value="<?= $datos_categoria['nombre_en']?>" type="text" class="form-control" id="nombre_en" name="nombre_en">
+                    </div>
+                    <div class="form-group">                
+                        <label for="descripcion">Descripción en inglés</label>
+                        <textarea class="form-control" id="descripcion_en" name="descripcion_en"><?= $datos_categoria['descripcion_en']?></textarea>
+                    </div>
     
                     <label for="imagen">Seleccionar imagen de vista previa</label>
                     <div class="custom-file">
@@ -70,17 +78,21 @@ if(!isset($_SESSION['id'])){
     
         <?php 
         if(isset($_POST['actualizar'])){
-            $consulta = $conexion -> prepare("UPDATE categoria SET nombre=?, descripcion=?, imagen=?, visible=? WHERE id=?");
+            $consulta = $conexion -> prepare("UPDATE categoria SET nombre=?, descripcion=?, nombre_en=?, descripcion_en=?, imagen=?, visible=? WHERE id=?");
     
             
             $nombre             =$_POST['nombre'];
             $descripcion        =$_POST['descripcion'];
+            $nombre_en          =$_POST['nombre_en'];
+            $descripcion_en        =$_POST['descripcion_en'];
             $imagen             =$datos_categoria['imagen'];
             $visible            =0;
             if(isset($_POST['visible'])){
                 $visible=1;
             }
 
+            $consulta -> bindParam(1,$nombre);
+            $consulta -> bindParam(2,$descripcion);
             $consulta -> bindParam(1,$nombre);
             $consulta -> bindParam(2,$descripcion);
             $consulta -> bindParam(3,$imagen);
@@ -111,10 +123,7 @@ if(!isset($_SESSION['id'])){
         
                 $consulta_actualizacion->bindParam(1, $nombre_imagen);
         
-                $consulta_actualizacion->execute();
-                
-                
-        
+                $consulta_actualizacion->execute();         
                 
             }
             echo "<meta http-equiv='refresh' content='0; url=categorias.php'>";

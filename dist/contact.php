@@ -1,5 +1,6 @@
 <?php
-include 'assets/php/functions.php'
+$page = 'contanct';
+include 'assets/php/functions.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -16,7 +17,7 @@ include 'assets/php/functions.php'
 </head>
 <body class="token">
     <?php
-    menu();
+    menu($page);
     ?>
     <!-- Banner -->
     <main id="main">

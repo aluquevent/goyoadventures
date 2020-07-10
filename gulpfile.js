@@ -1,5 +1,3 @@
-
-
 const {src,dest,watch,series,parallel} = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
 const rename = require('gulp-rename');

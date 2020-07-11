@@ -42,17 +42,32 @@ window.addEventListener("load",
                     descripcion.classList.add("form-control");
                     descripcion.setAttribute("id","descripcion"+numero);
                     descripcion.setAttribute("name","descripcion"+numero);        
+                    
+                    let form_grupo_desc_en = document.createElement("div");
+                    form_grupo_desc_en.classList.add("form-group");
+
+                    let label_desc_en = document.createElement("label");
+                    label_desc_en.setAttribute("for","descripcion"+numero+"_en");
+                    label_desc_en.innerHTML = "Descripción para día "+numero+" en inglés";
+
+                    let descripcion_en = document.createElement("textarea");
+                    descripcion_en.classList.add("form-control");
+                    descripcion_en.setAttribute("id","descripcion"+numero+"_en");
+                    descripcion_en.setAttribute("name","descripcion"+numero+"_en");        
     
                     imagen_grupo.appendChild(imagen_input);
                     imagen_grupo.appendChild(label_imagen);
                     form_grupo_desc.appendChild(label_desc);
                     form_grupo_desc.appendChild(descripcion);
+                    form_grupo_desc_en.appendChild(label_desc_en);
+                    form_grupo_desc_en.appendChild(descripcion_en);
                     form_grupo_imagen.appendChild(nuevo_titulo);
                     form_grupo_imagen.appendChild(label);
                     form_grupo_imagen.appendChild(imagen_grupo);
     
                     padre.appendChild(form_grupo_imagen);
                     padre.appendChild(form_grupo_desc);
+                    padre.appendChild(form_grupo_desc_en);
     
                     numero++;
                 }else{
@@ -62,6 +77,7 @@ window.addEventListener("load",
             })
         boton_borrar.addEventListener("click",
             ()=>{
+                padre.lastChild.remove();
                 padre.lastChild.remove();
                 padre.lastChild.remove();
                 numero = numero - 1;

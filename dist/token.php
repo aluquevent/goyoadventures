@@ -21,7 +21,7 @@ if($_COOKIE['idioma']=="es"){
     
         $id = $_GET['id'];
     
-        $consulta_salida= $conexion -> prepare("SELECT titulo, descripcion_corta, imagen, dificultad, localizacion, link_maps, dia1_img, dia2_img, dia3_img, dia4_img, dia5_img, dia6_img, dia7_img, dia8_img from salida WHERE id=?");
+        $consulta_salida= $conexion -> prepare("SELECT titulo, descripcion_corta, imagen, dificultad, localizacion, link_maps, dia1_img, dia2_img, dia3_img, dia4_img, dia5_img, dia6_img, dia7_img, dia8_img, incluye1, incluye2, incluye3, incluye4, incluye5, incluye6, incluye7, incluye8, incluye9, incluye10 from salida WHERE id=?");
         $consulta_salida -> bindParam(1,$id);
         $consulta_salida -> setFetchMode(PDO::FETCH_ASSOC);
         $consulta_salida -> execute();
@@ -95,19 +95,20 @@ if($_COOKIE['idioma']=="es"){
                                     break;
                             } ?></p>
                             <div class="separador-secundario"></div>
-                            <p class="sidebar-item">Duración: 3 días</p>
+                            <p class="sidebar-item">Duración: <?= $datos_salida['duracion']?></p>
                             <div class="separador-secundario"></div>
                             <p class="sidebar-item"><p><i class="fas mr-2 fa-map-marked-alt"></i>Localizacion: <?= $datos_salida['localizacion']?></p>
                             <div style="width:100%;"><?=$datos_salida['link_maps']?></div>
                             <ul class="mt-5">
                                 <h3>Incluye</h3>
                                 <div class="separador"></div>
-                                <li>Guía certificado de barrancos</li>
-                                <li>Todo el material necesario</li>
-                                <li>Picnic</li>
-                                <li>Transporte</li>
-                                <li>Seguro</li>
-                                <li>Reportaje fotográfico</li>
+                                <?php
+                                for($i=1;$i<10;$i++){
+                                    if($datos_salida['incluye'.$i]!=""){
+                                        echo "<li>$datos_salida[incluye$i]</li>"
+                                    }
+                                }
+                                ?>
                             </ul>
                         </div>
                     </div>

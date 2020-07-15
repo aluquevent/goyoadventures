@@ -30,7 +30,7 @@ function menu($page){
     ?>
     <header id="header" class="menu">
         <!-- Nav -->
-        <nav class="px-5 navbar navbar-expand-xl navbar-dark">
+        <nav class="navbar navbar-expand-xl navbar-dark">
             <a class="navbar-brand logo logo-light"  href="index.php"><span>Goyo</span>Garrido Adventures</a>            
             <button style="color:white;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -78,7 +78,7 @@ function menu($page){
                 
             </div>                
         </nav>
-        <a class="llamar" href="tel:tel:+679529844"><i class="fas fa-phone"></i></a>        
+        <a class="llamar" href="tel:+34679529844"><i class="fas fa-phone"></i></a>        
     </header>
     <?php
 }
@@ -113,7 +113,7 @@ function menu_en($page){
     ?>
     <header id="header" class="menu">
         <!-- Nav -->
-        <nav class="px-5 navbar navbar-expand-xl navbar-dark">
+        <nav class="navbar navbar-expand-xl navbar-dark">
             <a class="navbar-brand logo logo-light"  href="index.php"><span>Goyo</span>Garrido Adventures</a>            
             <button style="color:white;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -161,7 +161,7 @@ function menu_en($page){
                 
             </div>                
         </nav>
-        
+        <a class="llamar" href="tel:+34679529844"><i class="fas fa-phone"></i></a>        
     </header>
     <?php
 }
@@ -203,7 +203,7 @@ function footer(){
                     <h3 class="w-100">Déjame un mensaje y me pondré en contacto</h3>
                     <div class="contact-info">
                         <div>
-                            <a href="tel:+679529844"><i class="fas fa-phone mr-3"></i>679 52 98 44</a>
+                            <a href="tel:+34679529844"><i class="fas fa-phone mr-3"></i>679 52 98 44</a>
                         </div>
                         <div>
                             <a target="_blank" href="https://wa.link/yedscm"><i class="fab fa-whatsapp mr-3"></i>679 52 98 44</a>

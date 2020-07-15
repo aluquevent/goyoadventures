@@ -1330,10 +1330,14 @@ section#aventuras {
   margin: 15px 0px;
 }
 
+.envio {
+  padding: 5px 25px;
+}
+
 .boton {
   color: #f5f5f5;
   border: 1px #CAB05B solid;
-  padding: 5px 25px;
+  cursor: pointer;
   background: #C58911;
 }
 
@@ -1343,6 +1347,8 @@ section#aventuras {
 
 .boton a {
   color: #f5f5f5;
+  padding: 5px 25px;
+  display: block;
 }
 
 .boton:hover {
@@ -1378,9 +1384,30 @@ section#aventuras {
   color: #C58911 !important;
 }
 
+@media only screen and (max-width: 1400px) {
+  a.logo {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  a.logo {
+    font-size: 14px;
+  }
+  header#header {
+    max-width: 320px;
+  }
+  .navbar {
+    max-width: 320px;
+  }
+  .bloque-imagen-texto h4 {
+    font-size: 2rem;
+  }
+}
+
 .navbar {
   background-color: #16262E;
-  padding: 20px 0 20px 0;
+  padding: 20px 20px 20px 20px;
 }
 
 .navbar div {
@@ -1565,9 +1592,9 @@ section#profesionales div div div p {
 }
 
 .sidebar {
-  padding: 30px;
+  padding: 20px;
   background-color: #E1DEE3;
-  height: 1000px;
+  min-height: 1500px;
   width: 100%;
 }
 
@@ -1799,11 +1826,11 @@ a.slide_btn {
 }
 
 .directional_nav {
-  height: 340px;
+  min-height: 65px;
   margin: 0 auto;
   max-width: 100%;
   position: relative;
-  top: -220px;
+  top: -150px;
 }
 
 .directional_nav svg {
@@ -1856,9 +1883,13 @@ a.slide_btn {
 @media only screen and (max-width: 767px) {
   .previous_btn {
     left: 50px;
+    height: 30px;
+    width: 30px;
   }
   .next_btn {
     right: 50px;
+    height: 30px;
+    width: 30px;
   }
 }
 
@@ -1930,7 +1961,7 @@ body#acceso {
 
 @media only screen and (max-width: 768px) {
   .directional_nav {
-    bottom: -150px;
+    top: -65px;
   }
   .slide {
     padding: 0px;
@@ -1978,6 +2009,6 @@ body#acceso {
 .profesionales-titular div {
   width: 150px;
   position: absolute;
-  right: 0;
+  right: 25px;
   bottom: 25px;
 }

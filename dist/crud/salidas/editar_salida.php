@@ -17,7 +17,7 @@ if(!isset($_SESSION['id'])){
     import_js_head();
 
     ?>
-    <script src="../../assets/js/app.js"></script>
+    <script src="../../assets/js/dias.js"></script>
     <script src='../../assets/js/bootstrap.min.js'></script>
 </head>
 <body>
@@ -32,6 +32,12 @@ if(!isset($_SESSION['id'])){
         $consulta_salidas -> setFetchMode(PDO::FETCH_ASSOC);
         $consulta_salidas -> execute();
         $datos_salida = $consulta_salidas -> fetch();
+
+        $consulta_dias = $conexion -> prepare("SELECT * FROM dias WHERE id_salida=?");
+        $consulta_dias -> bindParam(1, $id);
+        $consulta_dias -> setFetchMode(PDO::FETCH_ASSOC);
+        $consulta_dias -> execute();
+        $datos_dia = $consulta_dias -> fetch();
         ?>
     
         <div class="container">
@@ -43,6 +49,11 @@ if(!isset($_SESSION['id'])){
                     <label for="nombre">Título salida</label>
                     <input value="<?= $datos_salida['titulo'] ?>" type="text" class="form-control" id="nombre" name="nombre">
                 </div>
+                <div class="form-group">
+                    <br>                    
+                    <label for="nombre_en">Título salida inglés</label>
+                    <input value="<?= $datos_salida['titulo_en'] ?>" type="text" class="form-control" id="nombre_en" name="nombre_en">
+                </div>
                 <div class="form-group">                   
                     <label for="descripcion">Descripcion</label>
                     <textarea class="form-control" id="descripcion" name="descripcion"><?= $datos_salida['descripcion_corta'] ?></textarea>
@@ -50,6 +61,13 @@ if(!isset($_SESSION['id'])){
                 <div class="form-group">                   
                     <label for="descripcion">Descripcion en inglés</label>
                     <textarea class="form-control" id="descripcion_en" name="descripcion_en"><?= $datos_salida['desc_corta_en'] ?></textarea>
+                </div>
+                <div class="form-group"> 
+                    <label for="imagen">Seleccionar imagen de vista previa</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="imagen " name="imagen">
+                        <label class="custom-file-label" for="imagen">Seleccionar imagen</label>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="categoria">Categoría</label>
@@ -75,18 +93,11 @@ if(!isset($_SESSION['id'])){
                 
                 <div class="form-group">
                     <label for="epoca">Época</label> 
-                    <select class="custom-select" name="epoca" id="inputGroupSelect02">                    
-                        <?php
-                        $epocas =["invierno" => "Invierno", "primavera" => "Primavera", "verano" => "Verano", "otoño" => "Otoño"];
-                        foreach ($epocas as $key => $valor) {
-                            if($key == $datos_salida['epoca']){
-                                echo "<option value='$key' selected>$valor</option>";
-                            }else{
-                                echo "<option value='$key'>$valor</option>";
-                            }
-                        }
-                        ?>
-                    </select>
+                    <input value="<?= $datos_salida['epoca'] ?>" type="text" class="form-control" id="epoca" name="epoca">
+                </div>
+                <div class="form-group">
+                    <label for="epoca_en">Época inglés</label> 
+                    <input value="<?= $datos_salida['epoca_en'] ?>" type="text" class="form-control" id="epoca_en" name="epoca_en">
                 </div>
                 <div class="form-group">
                     <label for="dificultad">Dificultad</label>
@@ -118,15 +129,81 @@ if(!isset($_SESSION['id'])){
                     <input value="<?= $datos_salida['link_maps'] ?>" type="text" class="form-control" id="googlemaps_encuentro" name="googlemaps_encuentro">
                 </div>
                 <div class="form-group">                    
-                    <label for="asistentes">Número de asistentes</label>
+                    <label for="material">Material necesario</label>
+                    <input value="<?= $datos_salida['material'] ?>" type="text" class="form-control" id="material" name="material">
+                </div>
+                <div class="form-group">                    
+                    <label for="material_en">Material necesario inglés</label>
+                    <input value="<?= $datos_salida['material_en'] ?>" type="text" class="form-control" id="material_en" name="material_en">
+                </div>
+                <div class="form-group">                    
+                    <label for="min_asistentes">Mínimo de asistentes</label>
+                    <input value="<?= $datos_salida['min_personas'] ?>" type="number" class="form-control" id="min_asistentes" name="min_asistentes">
+                </div>
+                <div class="form-group">                    
+                    <label for="asistentes">Máximo de asistentes</label>
                     <input value="<?= $datos_salida['max_personas'] ?>" type="number" class="form-control" id="asistentes" name="asistentes">
                 </div>
-                <div class="form-group"> 
-                    <label for="imagen">Seleccionar imagen de vista previa</label>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="imagen " name="imagen">
-                        <label class="custom-file-label" for="imagen">Seleccionar imagen</label>
-                    </div>
+                <div class="form-group">                    
+                    <label for="duracion_dia">Duración actividad/día </label>
+                    <input value="<?= $datos_salida['duracion_dia'] ?>" type="number" class="form-control" id="duracion_dia" name="duracion_dia">
+                </div>
+                <div class="form-group">                    
+                    <label for="duracion_completa">Duración completa </label>
+                    <input value="<?= $datos_salida['duracion_completa'] ?>" type="text" class="form-control" id="duracion_completa" name="duracion_completa">
+                </div>
+                <div class="form-group">                    
+                    <label for="duracion_completa_en">Duración completa inglés </label>
+                    <input value="<?= $datos_salida['duracion_completa_en'] ?>" type="text" class="form-control" id="duracion_completa_en" name="duracion_completa_en">
+                </div>
+                <div class="form-group">                    
+                    <label for="precio">Precio 1</label>
+                    <input value="<?= $datos_salida['precio'] ?>" type="text" class="form-control" id="precio" name="precio">
+                </div>
+                <div class="form-group">                    
+                    <label for="precio2">Precio 2</label>
+                    <input value="<?= $datos_salida['precio2'] ?>" type="text" class="form-control" id="precio2" name="precio2">
+                </div>
+                <div class="form-group">                    
+                    <label for="precio3">Precio 3</label>
+                    <input value="<?= $datos_salida['precio3'] ?>" type="text" class="form-control" id="precio3" name="precio3">
+                </div>
+                <div class="form-group">                    
+                    <label for="precio1_en">Precio 1 inglés</label>
+                    <input value="<?= $datos_salida['precio1_en'] ?>" type="text" class="form-control" id="precio1_en" name="precio1_en">
+                </div>
+                <div class="form-group">                    
+                    <label for="precio2_en">Precio 2 inglés</label>
+                    <input value="<?= $datos_salida['precio2_en'] ?>" type="text" class="form-control" id="precio2_en" name="precio2_en">
+                </div>
+                <div class="form-group">                    
+                    <label for="precio3_en">Precio 3 inglés</label>
+                    <input value="<?= $datos_salida['precio3_en'] ?>" type="text" class="form-control" id="precio3_en" name="precio3_en">
+                </div>
+
+                <?php
+                    for($i=1; $i <= 8; $i++){
+                        echo "<h2>Día $i</h2>
+                        <div class='form-group'>
+                            <label for='dia".$i."_img'>Seleccionar imagen</label>
+                            <div class='custom-file'>
+                                <input type='file' class='custom-file-input' id='dia".$i."_imagen ' name='dia".$i."_imagen'>
+                            <label class='custom-file-label' for='imagen'>Seleccionar imagen</label>
+                            </div>
+                            <div class='form-group'>                   
+                                <label for='descripcion_dia$i'>Descripción día $i</label>
+                            <textarea  class='form-control' id='descripcion_dia$i' name='descripcion_dia$i'>".$datos_dia['dia'.$i.'_desc']."</textarea>
+                            </div>
+                            <div class='form-group'>                   
+                                <label for='descripcion_en_dia".$i."'>Descripción en inglés</label>
+                            <textarea class='form-control' id='descripcion_en_dia".$i."' name='descripcion_en_dia".$i."'>".$datos_dia['dia'.$i.'_desc_en']."</textarea>
+                            </div>
+                        </div>";
+
+                    }
+                ?>
+                <div class='padre'>
+                    
                 </div>
 
                     <br>
@@ -147,12 +224,12 @@ if(!isset($_SESSION['id'])){
     
         <?php 
         if(isset($_POST['actualizar'])){
-            $consulta = $conexion -> prepare("UPDATE salida SET titulo=?, descripcion_corta=?, categoria=?, localizacion=?, link_maps=?, imagen=?, punto_encuentro=?, max_personas=?, epoca=?, dificultad=?, visible=?, desc_corta_en=? WHERE id=?");
+            $consulta = $conexion -> prepare("UPDATE salida SET titulo=?, descripcion_corta=?, categoria=?, localizacion=?, link_maps=?, imagen=?, punto_encuentro=?, max_personas=?, epoca=?, dificultad=?, visible=?, desc_corta_en=?, titulo_en=?, epoca_en=?, min_personas=?, material=?, material_en=?, precio=?, precio2=?, precio3=?, precio1_en=?, precio2_en=?, precio3_en=?, duracion_dia=?, duracion_completa=?, duracion_completa_en=? WHERE id=?");
     
             
             $titulo             =$_POST['nombre'];
             $descripcion        =$_POST['descripcion'];
-            $descripcion_en        =$_POST['descripcion_en'];
+            $descripcion_en     =$_POST['descripcion_en'];
             $categoria          =$_POST['categoria'];
             $ubicacion          =$_POST['ubicacion'];
             $maps               =$_POST['googlemaps_encuentro'];
@@ -165,6 +242,20 @@ if(!isset($_SESSION['id'])){
             if(isset($_POST['visible'])){
                 $visible=1;
             }
+            $titulo_en = $_POST['nombre_en'];
+            $epoca_en = $_POST['epoca_en'];
+            $material = $_POST['material'];
+            $material_en = $_POST['material_en'];
+            $precio = $_POST['precio'];
+            $precio2 = $_POST['precio2'];
+            $precio3 = $_POST['precio3'];
+            $precio1_en = $_POST['precio1_en'];
+            $precio2_en = $_POST['precio2_en'];
+            $precio3_en = $_POST['precio3_en'];
+            $duracion_dia = $_POST['duracion_dia'];
+            $duracion_completa = $_POST['duracion_completa'];
+            $duracion_completa_en =$_POST['duracion_completa_en'];
+            
            
             $consulta -> bindParam(1,$titulo);
             $consulta -> bindParam(2,$descripcion);
@@ -177,8 +268,22 @@ if(!isset($_SESSION['id'])){
             $consulta -> bindParam(9,$epoca);
             $consulta -> bindParam(10,$dificultad);
             $consulta -> bindParam(11,$visible); 
-            $consulta -> bindParam(12,$descripcion_en); 
-            $consulta -> bindParam(13,$id); 
+            $consulta -> bindParam(12,$descripcion_en);
+            $consulta -> bindParam(13,$titulo_en);
+            $consulta -> bindParam(14,$epoca_en);
+            $consulta -> bindParam(15,$min_personas);
+            $consulta -> bindParam(16,$material);
+            $consulta -> bindParam(17,$material_en);
+            $consulta -> bindParam(18,$precio);
+            $consulta -> bindParam(19,$precio2);
+            $consulta -> bindParam(20,$precio3);
+            $consulta -> bindParam(21,$precio1_en);
+            $consulta -> bindParam(22,$precio2_en);
+            $consulta -> bindParam(23,$precio3_en);
+            $consulta -> bindParam(24,$duracion_dia);
+            $consulta -> bindParam(25,$duracion_completa);
+            $consulta -> bindParam(26,$duracion_completa_en);           
+            $consulta -> bindParam(27,$id); 
     
             $consulta -> execute();
     
@@ -200,14 +305,79 @@ if(!isset($_SESSION['id'])){
         
                 //Actualizamos nuestro curson con los nombres de las imágenes
         
-                $consulta_actualizacion=$conexion->prepare("UPDATE salida SET imagen=? where id=?");
+                $consulta_actualizacion=$conexion->prepare("UPDATE salida SET imagen=? where id=?");              
         
                 $consulta_actualizacion->bindParam(1, $nombre_imagen);
                 $consulta_actualizacion->bindParam(2, $id);
         
-                $consulta_actualizacion->execute();    
+                $consulta_actualizacion->execute();
+                
+                
+                $consulta_dias_imagen = $conexion -> prepare("UPDATE dias SET dia1_img=?, dia2_img=?, dia3_img=?, dia4_img=?, dia5_img=?, dia6_img=?, dia7_img=?, dia8_img=? WHERE id_salida=?");              
+                
+                for($i=1; $i<=8; $i++){
+                    if(!empty($_FILES['dia'.$i.'_imagen']['tmp_name'])){                        
+                        if(!file_exists("../../assets/img/salidas")){
+                            mkdir("../../assets/img/salidas");
+                        }
+                        unlink("../../assets/img/salidas/".$datos_salida['dia'.$i.'_img']);                        
+                
+                        $nombre_tmp_imagen=$_FILES['dia'.$i.'_imagen']['tmp_name'];
+                
+                        $extension_imagen=extension_imagen($_FILES['dia'.$i.'_imagen']['type']);
+                        
+                        $nombre_imagen="salida_".$id."_dia".$i."".$extension_imagen;
+                        move_uploaded_file($nombre_tmp_imagen,"../../assets/img/salidas/$nombre_imagen");
+                        $consulta_dias_imagen -> bindParam($i, $nombre_imagen);
+                    }else{
+                        $dia_imagen        =$datos_dia['dia'.$i.'_img'];
+                        $consulta_dias_imagen -> bindParam($i, $dia_imagen);
+                    }
+                }
+                $consulta_dias_imagen -> bindParam(9, $id);
+                $consulta_dias_imagen -> execute();                
                 
             }
+            $consulta_dias_desc = $conexion -> prepare("UPDATE dias SET dia1_desc=?, dia2_desc=?, dia3_desc=?, dia4_desc=?, dia5_desc=?, dia6_desc=?, dia7_desc=?, dia8_desc=?, dia1_desc_en=?, dia2_desc_en=?, dia3_desc_en=?, dia4_desc_en=?, dia5_desc_en=?, dia6_desc_en=?, dia7_desc_en=?, dia8_desc_en=? WHERE id_salida=?");
+            $dia1_desc = $_POST['descripcion_dia1'];
+            $dia2_desc = $_POST['descripcion_dia2'];
+            $dia3_desc = $_POST['descripcion_dia3'];
+            $dia4_desc = $_POST['descripcion_dia4'];
+            $dia5_desc = $_POST['descripcion_dia5'];
+            $dia6_desc = $_POST['descripcion_dia6'];
+            $dia7_desc = $_POST['descripcion_dia7'];
+            $dia8_desc = $_POST['descripcion_dia8'];
+
+            $dia1_desc_en = $_POST['descripcion_en_dia1'];
+            $dia2_desc_en = $_POST['descripcion_en_dia2'];
+            $dia3_desc_en = $_POST['descripcion_en_dia3'];
+            $dia4_desc_en = $_POST['descripcion_en_dia4'];
+            $dia5_desc_en = $_POST['descripcion_en_dia5'];
+            $dia6_desc_en = $_POST['descripcion_en_dia6'];
+            $dia7_desc_en = $_POST['descripcion_en_dia7'];
+            $dia8_desc_en = $_POST['descripcion_en_dia8'];
+
+            $consulta_dias_desc -> bindParam(1, $dia1_desc);
+            $consulta_dias_desc -> bindParam(2, $dia2_desc);
+            $consulta_dias_desc -> bindParam(3, $dia3_desc);
+            $consulta_dias_desc -> bindParam(4, $dia4_desc);
+            $consulta_dias_desc -> bindParam(5, $dia5_desc);
+            $consulta_dias_desc -> bindParam(6, $dia6_desc);
+            $consulta_dias_desc -> bindParam(7, $dia7_desc);
+            $consulta_dias_desc -> bindParam(8, $dia8_desc);
+            $consulta_dias_desc -> bindParam(9, $dia1_desc_en);
+            $consulta_dias_desc -> bindParam(10, $dia2_desc_en);
+            $consulta_dias_desc -> bindParam(11, $dia3_desc_en);
+            $consulta_dias_desc -> bindParam(12, $dia4_desc_en);
+            $consulta_dias_desc -> bindParam(13, $dia5_desc_en);
+            $consulta_dias_desc -> bindParam(14, $dia6_desc_en);
+            $consulta_dias_desc -> bindParam(15, $dia7_desc_en);
+            $consulta_dias_desc -> bindParam(16, $dia8_desc_en);
+            $consulta_dias_desc -> bindParam(17, $id);
+
+            $consulta_dias_desc -> execute();
+
+
             echo "<meta http-equiv='refresh' content='0; url=salidas.php'>";
 
     

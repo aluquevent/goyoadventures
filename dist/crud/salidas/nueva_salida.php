@@ -29,22 +29,28 @@ include '../../assets/php/functions.php';
 
     <div class="container">
         <div class="row">
-            <h1 class="col-12">Nueva salida</h1>            
-            <form class="col-12" id="salida-form" action="#" method="post" enctype="multipart/form-data">
-                <div class="form-group">
+            <h1 class="col-12">Nueva salida</h1>
+        </div>            
+            <form class="row" id="salida-form" action="#" method="post" enctype="multipart/form-data">
+                <div class="form-group col-12">
                     <br>                    
                     <label for="nombre">Título salida</label>
                     <input type="text" class="form-control" id="nombre" name="nombre">
                 </div>
-                <div class="form-group">                   
+                <div class="form-group col-12">
+                    <br>                    
+                    <label for="nombre_en">Título salida en inglés</label>
+                    <input type="text" class="form-control" id="nombre_en" name="nombre_en">
+                </div>
+                <div class="form-group col-6">                   
                     <label for="descripcion">Descripcion</label>
                     <textarea class="form-control" id="descripcion" name="descripcion"></textarea>
                 </div>
-                <div class="form-group">                   
+                <div class="form-group col-6">                   
                     <label for="descripcion">Descripcion en inglés</label>
                     <textarea class="form-control" id="descripcion_en" name="descripcion_en"></textarea>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-4">
                     <label for="categoria">Categoría</label>
                     <select class="custom-select" name="categoria" id="inputGroupSelect01">
                     <option selected>Elegir categoría</option>
@@ -61,15 +67,35 @@ include '../../assets/php/functions.php';
                 </div>
                 
                 
-                <div class="form-group">
+                <div class="form-group col-4">
                     <label for="epoca">Época</label> 
                     <input type="text" class="form-control" name="epoca">                    
                 </div>
-                <div class="form-group">
+                <div class="form-group col-4">
+                    <label for="epoca_en">Época en inglés</label> 
+                    <input type="text" class="form-control" name="epoca_en">                    
+                </div>
+                <div class="form-group col-6">
                     <label for="material">Material necesario</label> 
                     <input type="text" class="form-control" name="material">                    
                 </div>
-                <div class="form-group">
+                <div class="form-group col-6">
+                    <label for="material_en">Material necesario en inglés</label> 
+                    <input type="text" class="form-control" name="material_en">                    
+                </div>
+                <div class="form-group col-4">
+                    <label for="duracion_dia">Duración de la actividad cada día (en horas)</label> 
+                    <input type="number" class="form-control" name="duracion_dia">                    
+                </div>
+                <div class="form-group col-4">
+                    <label for="duracion_completa">Duración de la actividad completa (días/noches rellenar si es necesario)</label> 
+                    <input type="text" class="form-control" name="duracion_completa">                    
+                </div>
+                <div class="form-group col-4">
+                    <label for="duracion_completa_en">Duración de la actividad completa en inglés</label> 
+                    <input type="text" class="form-control" name="duracion_completa_en">                    
+                </div>
+                <div class="form-group col-6">
                     <label for="dificultad">Dificultad</label>
                     <select class="custom-select" name="dificultad" id="inputGroupSelect02">
                         <option selected>Elegir dificultad</option>
@@ -79,30 +105,55 @@ include '../../assets/php/functions.php';
                         <option value="4">4 - Difícil</option>
                         <option value="5">5 - Muy difícil</option>
                     </select>
-                </div>      
-                
+                </div>       
 
-                <div class="form-group">                    
+                <div class="form-group col-6">                    
                     <label for="ubicacion">Ubicación ruta</label>
                     <input type="text" class="form-control" id="ubicacion" name="ubicacion">
                 </div>
-                <div class="form-group">                    
+                <div class="form-group col-6">                    
                     <label for="encuentro">Punto de encuentro</label>
                     <input type="text" class="form-control" id="encuentro" name="encuentro">
                 </div>
-                <div class="form-group">                    
-                    <label for="googlemaps_encuentro">Link Punto de encuentro</label>
+                <div class="form-group col-6">                    
+                    <label for="googlemaps_encuentro">Link Punto de encuentro (copiar código "iframe" de Google Maps: Compartir - Insertar Mapa - Copiar HTML) Tamaño: 300x450</label>
                     <input type="text" class="form-control" id="googlemaps_encuentro" name="googlemaps_encuentro">
                 </div>
-                <div class="form-group">                    
-                    <label for="asistentes">Número de asistentes</label>
-                    <input type="number" class="form-control" id="asistentes" name="asistentes">
+                <div class="form-group col-6">                    
+                    <label for="asistentes_max">Máximo de asistentes (se puede texto)</label>
+                    <input type="text" class="form-control" id="asistentes_max" name="asistentes_max">
                 </div>
-                <div class="form-group">                    
-                    <label for="precio">Precio</label>
-                    <input type="number" class="form-control" id="precio" name="precio">
+                <div class="form-group col-6">                    
+                    <label for="asistentes_min">Mínimo de asistentes</label>
+                    <input type="number" class="form-control" id="asistentes_min" name="asistentes_min">
                 </div>
-                <div class="form-group"> 
+                <div class="form-group col-4">                    
+                    <label for="precio">Precio 1</label>
+                    <input type="text" class="form-control" id="precio" name="precio">
+                </div>
+
+                <div class="form-group col-4">                    
+                    <label for="precio2">Precio 2</label>
+                    <input type="text" class="form-control" id="precio2" name="precio2">
+                </div>
+
+                <div class="form-group col-4">                    
+                    <label for="precio3">Precio 3</label>
+                    <input type="text" class="form-control" id="precio3" name="precio3">
+                </div>
+                <div class="form-group col-4">                    
+                    <label for="precio_en">Precio 1 inglés</label>
+                    <input type="text" class="form-control" id="precio_en" name="precio_en">
+                </div>
+                <div class="form-group col-4">                    
+                    <label for="precio2_en">Precio 2 inglés</label>
+                    <input type="text" class="form-control" id="precio2_en" name="precio2_en">
+                </div>
+                <div class="form-group col-4">                    
+                    <label for="precio3_en">Precio 3 inglés</label>
+                    <input type="text" class="form-control" id="precio3_en" name="precio3_en">
+                </div>
+                <div class="form-group col-12"> 
                     <label for="imagen">Seleccionar imagen de vista previa</label>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="imagen " name="imagen">
@@ -110,17 +161,24 @@ include '../../assets/php/functions.php';
                     </div>
                 </div>
 
-                <div id="padre_includes"></div>
+                <div id="padre_includes" class="col-12"></div>
+                <div class="col-12">
                 <button type="button" class="btn btn-success" id="incluye">Añadir incluído</button>
                 <button type="button" class="btn btn-danger" id="borrar_incluye">Borrar último incluido</button>
                 <br><br>
-
-                <div id="padre"></div>
-                <button type="button" class="btn btn-success" id="dias">Añadir día</button>
-                <button type="button" class="btn btn-danger" id="borrar_dias">Borrar un día</button>
+                </div>
+                
                 
 
-                <div class="form-group"> 
+                <div id="padre" class="col-12"></div>
+                <div class="col-12">
+                <button type="button" class="btn btn-success" id="dias">Añadir día</button>
+                <button type="button" class="btn btn-danger" id="borrar_dias">Borrar un día</button>
+                </div>
+                
+                
+
+                <div class="form-group col-12"> 
                     <div class="form-check">    
                         <input class="form-check-input" type="checkbox" value="" id="visible" name="visible">
                         <label class="form-check-label" for="visible">¿Salida visible?</label>
@@ -135,10 +193,11 @@ include '../../assets/php/functions.php';
 
     <?php 
     if(isset($_POST['crear'])){
-        $consulta = $conexion -> prepare("INSERT INTO salida VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $consulta = $conexion -> prepare("INSERT INTO salida VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
         $id                 =null;
         $titulo             =$_POST['nombre'];
+        $titulo_en          =$_POST['nombre_en'];
         $descripcion        =$_POST['descripcion'];
         $descripcion_en     =$_POST['descripcion_en'];
         $categoria          =$_POST['categoria'];
@@ -146,11 +205,22 @@ include '../../assets/php/functions.php';
         $maps               =$_POST['googlemaps_encuentro'];
         $imagen             ="";
         $punto_encuentro    =$_POST['encuentro'];
-        $max_asistentes     =$_POST['asistentes'];
+        $min_asistentes     =$_POST['asistentes_min'];
+        $max_asistentes     =$_POST['asistentes_max'];
         $epoca              =$_POST['epoca'];
+        $epoca_en           =$_POST['epoca_en'];
         $dificultad         =$_POST['dificultad'];
         $precio             =$_POST['precio'];
+        $precio2            =$_POST['precio2'];
+        $precio3            =$_POST['precio3'];
+        $precio_en          =$_POST['precio_en'];
+        $precio2_en         =$_POST['precio2_en'];
+        $precio3_en         =$_POST['precio3_en'];
         $material_necesario =$_POST['material'];
+        $material_necesario_en =$_POST['material_en'];
+        $duracion_dia       =$_POST['duracion_dia'];
+        $duracion_completa  =$_POST['duracion_completa'];
+        $duracion_completa_en  =$_POST['duracion_completa_en'];
 
         $visible            =0;
         if(isset($_POST['visible'])){
@@ -159,19 +229,31 @@ include '../../assets/php/functions.php';
     
         $consulta -> bindParam(1, $id);
         $consulta -> bindParam(2, $titulo);
-        $consulta -> bindParam(3, $descripcion);
-        $consulta -> bindParam(4, $descripcion_en);
-        $consulta -> bindParam(5, $categoria);
-        $consulta -> bindParam(6, $ubicacion);
-        $consulta -> bindParam(7, $maps);
-        $consulta -> bindParam(8, $imagen);
-        $consulta -> bindParam(9, $punto_encuentro);
-        $consulta -> bindParam(10, $max_asistentes);
-        $consulta -> bindParam(11, $epoca);
-        $consulta -> bindParam(12, $dificultad);
-        $consulta -> bindParam(13, $precio);
-        $consulta -> bindParam(14, $material_necesario);
-        $consulta -> bindParam(15, $visible);
+        $consulta -> bindParam(3, $titulo_en);
+        $consulta -> bindParam(4, $descripcion);
+        $consulta -> bindParam(5, $descripcion_en);
+        $consulta -> bindParam(6, $categoria);
+        $consulta -> bindParam(7, $ubicacion);
+        $consulta -> bindParam(8, $maps);
+        $consulta -> bindParam(9, $imagen);
+        $consulta -> bindParam(10, $punto_encuentro);
+        $consulta -> bindParam(11, $min_asistentes);
+        $consulta -> bindParam(12, $max_asistentes);
+        $consulta -> bindParam(13, $epoca);
+        $consulta -> bindParam(14, $epoca_en);
+        $consulta -> bindParam(15, $dificultad);
+        $consulta -> bindParam(16, $precio);
+        $consulta -> bindParam(17, $precio2);
+        $consulta -> bindParam(18, $precio3);
+        $consulta -> bindParam(19, $precio_en);
+        $consulta -> bindParam(20, $precio2_en);
+        $consulta -> bindParam(21, $precio3_en);
+        $consulta -> bindParam(22, $material_necesario);
+        $consulta -> bindParam(23, $material_necesario_en);
+        $consulta -> bindParam(24, $duracion_dia);
+        $consulta -> bindParam(25, $duracion_completa);
+        $consulta -> bindParam(26, $duracion_completa_en);
+        $consulta -> bindParam(27, $visible);
 
         $consulta -> execute();   
 
@@ -264,7 +346,6 @@ include '../../assets/php/functions.php';
                 move_uploaded_file($nombre_tmp_imagen,"../../assets/img/salidas/$nombre_imagen");
 
                 $consulta_dias_imagenes -> bindParam($i,$nombre_imagen);
-                echo "hola";
             }else{                
                 $consulta_dias_imagenes -> bindParam($i,$vacio);
             }         
@@ -285,7 +366,7 @@ include '../../assets/php/functions.php';
         $consulta_dias_descripcion -> bindParam(9,$id_salida);
         $consulta_dias_descripcion -> execute();
         
-        $consulta_dias_descripcion_en = $conexion -> prepare("UPDATE dias set dia1_desc_en=?, dia2_desc_en=?, dia3_desc_en=?, dia4_desc_en=?, dia5_desc_en=?, dia6_desc_en=?, dia7_desc_en=?, dia8_desc_en=? WHERE id_salida=?");        
+        $consulta_dias_descripcion_en = $conexion -> prepare("UPDATE dias SET dia1_desc_en=?, dia2_desc_en=?, dia3_desc_en=?, dia4_desc_en=?, dia5_desc_en=?, dia6_desc_en=?, dia7_desc_en=?, dia8_desc_en=? WHERE id_salida=?");        
         
         for($i=1; $i<=8; $i++){            
             if(isset($_POST['descripcion'.$i.'_en']) && $_POST['descripcion'.$i.'_en']!=""){
@@ -298,16 +379,59 @@ include '../../assets/php/functions.php';
         $consulta_dias_descripcion_en -> bindParam(9,$id_salida);
         $consulta_dias_descripcion_en -> execute();
 
-        // $incluye="";
-        // for($i=1;$i<=10;$i++){
-        //     if(isset($_POST['incluye'.$i])){
-        //         $incluye."".$i= $_POST['incluye'.$i];
-        //     }else{
-        //         $incluye."".$i="";
-        //     }
-        // }
 
-        // echo "<meta http-equiv='refresh' content='0; url=salidas.php'>";
+        $consulta_incluye = $conexion -> prepare("INSERT INTO incluye VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        
+        $vacio="";
+
+        $consulta_incluye -> bindParam(1, $id_salida);
+        $consulta_incluye -> bindParam(2, $vacio);
+        $consulta_incluye -> bindParam(3, $vacio);
+        $consulta_incluye -> bindParam(4, $vacio);
+        $consulta_incluye -> bindParam(5, $vacio);
+        $consulta_incluye -> bindParam(6, $vacio);
+        $consulta_incluye -> bindParam(7, $vacio);
+        $consulta_incluye -> bindParam(8, $vacio);
+        $consulta_incluye -> bindParam(9, $vacio);
+        $consulta_incluye -> bindParam(10, $vacio);
+        $consulta_incluye -> bindParam(11, $vacio);
+        $consulta_incluye -> bindParam(12, $vacio);
+        $consulta_incluye -> bindParam(13, $vacio);
+        $consulta_incluye -> bindParam(14, $vacio);
+        $consulta_incluye -> bindParam(15, $vacio);
+        $consulta_incluye -> bindParam(16, $vacio);
+        $consulta_incluye -> bindParam(17, $vacio);
+        $consulta_incluye -> bindParam(18, $vacio);
+        $consulta_incluye -> bindParam(19, $vacio);
+        $consulta_incluye -> bindParam(20, $vacio);
+        $consulta_incluye -> bindParam(21, $vacio);
+        $consulta_incluye -> execute();
+
+        $actualizacion_incluye = $conexion -> prepare("UPDATE incluye SET incluye1=?, incluye2=?, incluye3=?, incluye4=?, incluye5=?, incluye6=?, incluye7=?, incluye8=?, incluye9=?, incluye10=?, incluye1_en=?, incluye2_en=?, incluye3_en=?, incluye4_en=?, incluye5_en=?, incluye6_en=?, incluye7_en=?, incluye8_en=?, incluye9_en=?, incluye10_en=? WHERE id_salida=?");
+        $incluye_vacio="";
+        $j=1;
+        for($i=1;$i<=20;$i++){
+            if($i<=10){
+                if(isset($_POST['incluye'.$i]) && !empty($_POST['incluye'.$i])){
+                    $actualizacion_incluye -> bindParam($i, $_POST['incluye'.$i]);
+                }else{
+                    $actualizacion_incluye -> bindParam($i, $incluye_vacio);
+                }
+            }else{
+                
+                if(isset($_POST['incluye_en'.$i]) && !empty($_POST['incluye_en'.$j])){
+                    $actualizacion_incluye -> bindParam($i, $_POST['incluye_en'.$j]);
+                }else{
+                    $actualizacion_incluye -> bindParam($i, $incluye_vacio);
+                }
+                $j++;
+            }              
+        }
+
+        $actualizacion_incluye -> bindParam (21, $id_salida);
+        $actualizacion_incluye -> execute();
+
+        echo "<meta http-equiv='refresh' content='0; url=salidas.php'>";
 
     }
     $conexion = null;

@@ -65,13 +65,16 @@ section#aventuras{
     @include separadorModificable($wi:80%, $bgc:$azul);
 }
 
-
+.envio{
+    padding:5px 25px;
+}
 
 .boton{
     
     color:$blanco;
     border:1px $crema solid;
-    padding: 5px 25px;
+    cursor: pointer;
+    
     background: $principal;
     
     // background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(191,180,143,1) 100%);
@@ -80,6 +83,8 @@ section#aventuras{
     }
     a{
         color:$blanco;
+        padding:5px 25px;
+        display:block;
     }
     &:hover{
         background-color: $azul;
@@ -114,10 +119,33 @@ section#aventuras{
 }
 
 
+@media only screen and (max-width: 1400px) {
+    a.logo{
+        font-size: 16px;
+    }
+}
+@media only screen and (max-width: 320px) {
+    a.logo{
+        font-size: 14px;
+    }
+    
+    header#header{
+        max-width: 320px;
+    }
+    .navbar{
+        max-width: 320px;
+    }
+    .bloque-imagen-texto{
+        h4{
+            font-size: 2rem;
+        }
+    }
 
+}
 .navbar{
     background-color: $azulOsc;
-    padding: 20px 0 20px 0;
+    padding: 20px 20px 20px 20px;
+
     div{
         text-align: right;
         width: 50%;
@@ -326,9 +354,9 @@ section#profesionales{
 
 .sidebar{
     
-    padding:30px;
+    padding:20px;
     background-color: $gris;
-    height: 1000px;
+    min-height: 1500px;
     width: 100%;
 
     ul{
@@ -494,6 +522,8 @@ overflow: hidden;
 position: relative;
 }
 
+
+
 .slide_group {
 height: 100%;
 position: relative;
@@ -574,11 +604,11 @@ cursor: pointer;
 }
 
 .directional_nav {
-height: 340px;
+min-height: 65px;
 margin: 0 auto;
 max-width: 100%;
 position: relative;
-top: -220px;
+top: -150px;
     svg{
         background-color: $azulOsc;
         padding: 5px;
@@ -628,9 +658,13 @@ opacity: 1;
 @media only screen and (max-width: 767px) {
 .previous_btn {
     left: 50px;
+    height: 30px;
+    width: 30px;
 }
 .next_btn {
     right: 50px;
+    height: 30px;
+    width: 30px;
 }
 }
 body#acceso{
@@ -694,7 +728,7 @@ body#acceso{
 }
 @media only screen and (max-width:768px){
     .directional_nav{
-        bottom:-150px;
+        top: -65px;
     }
     .slide{
         padding:0px;
@@ -749,7 +783,7 @@ body{
     div{
         width: 150px;        
         position: absolute;
-        right: 0;
+        right: 25px;
         bottom:25px;
     }
 }

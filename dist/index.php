@@ -73,7 +73,7 @@ if($_COOKIE['idioma']=="es"){
                         <div class="fondo-azulOscOp slider-content">
                             <h1><?= $datos_barranquismo['nombre']?></h1>
                             <p><?= $datos_barranquismo['descripcion']?></p>
-                            <a class="boton" href="categories.php?id=<?=$datos_barranquismo['id']?>">Descubre</a>
+                            <button type="button" class="boton" touchstart="javascript:location.href = 'logout.php';"><a href="categories.php?id=<?=$datos_barranquismo['id']?>">Descubre</a></button>
                         </div>
         
                     </div>
@@ -81,28 +81,28 @@ if($_COOKIE['idioma']=="es"){
                         <div class="fondo-azulOscOp slider-content">
                             <h1><?= $datos_caballos['nombre']?></h1>
                             <p><?= $datos_caballos['descripcion']?></p>
-                            <a class="boton" href="categories.php?id=<?=$datos_caballos['id']?>">Descubre</a>
+                            <button type="button" class="boton"><a href="categories.php?id=<?=$datos_caballos['id']?>">Descubre</a></button>
                         </div>
                     </div>
                     <div class="slide" style="background: url(assets/img/banner/4x4.jpg) center center; background-size: cover;">
                         <div class="fondo-azulOscOp slider-content">                    
                             <h1><?= $datos_4x4['nombre']?></h1>
                             <p><?= $datos_4x4['descripcion']?></p>
-                            <a class="boton" href="categories.php?id=<?=$datos_4x4['id']?>">Descubre</a>
+                            <button type="button" class="boton"><a href="categories.php?id=<?=$datos_4x4['id']?>">Descubre</a></button>
                         </div>
                     </div>
                     <div class="slide" style="background: url(assets/img/banner/senderismo.jpg) center center; background-size: cover;">
                         <div class="fondo-azulOscOp slider-content">
                             <h1><?= $datos_senderismo['nombre']?></h1>
                             <p><?= $datos_senderismo['descripcion']?></p>
-                            <a class="boton" href="categories.php?id=<?=$datos_senderismo['id']?>">Descubre</a>
+                            <button type="button" class="boton"><a href="categories.php?id=<?=$datos_senderismo['id']?>">Descubre</a></button>
                         </div>
                     </div>
                     <div class="slide" style="background: url(assets/img/banner/bicicleta.jpg) center center; background-size: cover;">
                         <div class="fondo-azulOscOp slider-content">
                             <h1><?= $datos_bicicleta['nombre']?></h1>
                             <p><?= $datos_bicicleta['descripcion']?></p>
-                            <a class="boton" href="categories.php?id=<?=$datos_bicicleta['id']?>">Descubre</a>
+                            <button type="button" class="boton"><a href="categories.php?id=<?=$datos_bicicleta['id']?>">Descubre</a></button>
                         </div> 
                     </div>
                     </div>
@@ -126,7 +126,7 @@ if($_COOKIE['idioma']=="es"){
             </div><!-- End // .directional_nav -->     
         
             <!-- Aventuras -->
-            <section id="aventuras">
+            <section id="aventuras mt-5">
                 <div class="container mb-5">
                     <div class="row section-titular">
                         <h2 class="col-12">¡Elige tu aventura!</h2>
@@ -198,7 +198,7 @@ if($_COOKIE['idioma']=="es"){
                                 <p class="subtitle">Coordinadora</p>
                                 <p>Me llamo Esmeralda y ofrezco tour culturales en Granada! Trabajo como guía autónoma especializada en tours privados. <br><br>Será un placer enseñarte la belleza de esta ciudad y transportarte a los mágicos tiempos de la Alhambra medieval. Soy una antropóloga italiana experta en interculturalidad que se mudó en Granada  hace más de 16 años. Vine por un intercambio universitario, me enamoré de esta ciudad y nunca me fui de vuelta!. <br><br>Te llevaré mas allá de la belleza de los sitios históricos en un tour que explora la complexidad de esta tierra llena de historia, literatura y filosofía.</p>
                                 <div>
-                                <a class="boton fondo-azul" href="about.php">Conócenos</a>
+                                <button type="button" class="boton fondo-azul"><a href="about.php">Conócenos</a></button>
                                 </div>
                             </div>
                             <div class="col-md-6 p-0 col-12 image-block">
@@ -244,7 +244,7 @@ if($_COOKIE['idioma']=="es"){
                                 <input type="text" name="asunto" id="asunto" placeholder="Asunto">
                                 <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Mensaje..."></textarea>
                             </form>
-                            <button type="submit" class="boton">Enviar</button>
+                            <button type="submit" class="boton envio">Enviar</button>
                         </div>
                     </div>
                 </div>
@@ -361,18 +361,18 @@ if($_COOKIE['idioma']=="es"){
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Goyo Adventures | Home</title>
+        <title>Goyo Adventures | Inicio</title>
         
         <?php
         import_css();
         import_js_head();    
         ?>
         <script type="text/javascript" src="assets/js/app.js"></script>
-       
+    
     </head>
         
     <body>
-    
+
         <?php
         $conexion = conectarBD();
         
@@ -405,7 +405,7 @@ if($_COOKIE['idioma']=="es"){
             
             ?>
             <!-- Banner -->
-            <main id="main">
+            <main id="main">            
             <div class="slider">
                 <div class="slide_viewer">
                     <div class="slide_group">
@@ -413,7 +413,7 @@ if($_COOKIE['idioma']=="es"){
                         <div class="fondo-azulOscOp slider-content">
                             <h1><?= $datos_barranquismo['nombre_en']?></h1>
                             <p><?= $datos_barranquismo['descripcion_en']?></p>
-                            <a class="boton" href="categories.php?id=<?=$datos_barranquismo['id']?>">Discover</a>
+                            <button type="button" class="boton" touchstart="javascript:location.href = 'logout.php';"><a href="categories.php?id=<?=$datos_barranquismo['id']?>">Discover</a></button>
                         </div>
         
                     </div>
@@ -421,28 +421,28 @@ if($_COOKIE['idioma']=="es"){
                         <div class="fondo-azulOscOp slider-content">
                             <h1><?= $datos_caballos['nombre_en']?></h1>
                             <p><?= $datos_caballos['descripcion_en']?></p>
-                            <a class="boton" href="categories.php?id=<?=$datos_caballos['id']?>">Discover</a>
+                            <button type="button" class="boton"><a href="categories.php?id=<?=$datos_caballos['id']?>">Discover</a></button>
                         </div>
                     </div>
                     <div class="slide" style="background: url(assets/img/banner/4x4.jpg) center center; background-size: cover;">
                         <div class="fondo-azulOscOp slider-content">                    
                             <h1><?= $datos_4x4['nombre_en']?></h1>
                             <p><?= $datos_4x4['descripcion_en']?></p>
-                            <a class="boton" href="categories.php?id=<?=$datos_4x4['id']?>">Discover</a>
+                            <button type="button" class="boton"><a href="categories.php?id=<?=$datos_4x4['id']?>">Discover</a></button>
                         </div>
                     </div>
                     <div class="slide" style="background: url(assets/img/banner/senderismo.jpg) center center; background-size: cover;">
                         <div class="fondo-azulOscOp slider-content">
                             <h1><?= $datos_senderismo['nombre_en']?></h1>
                             <p><?= $datos_senderismo['descripcion_en']?></p>
-                            <a class="boton" href="categories.php?id=<?=$datos_senderismo['id']?>">Discover</a>
+                            <button type="button" class="boton"><a href="categories.php?id=<?=$datos_senderismo['id']?>">Discover</a></button>
                         </div>
                     </div>
                     <div class="slide" style="background: url(assets/img/banner/bicicleta.jpg) center center; background-size: cover;">
                         <div class="fondo-azulOscOp slider-content">
                             <h1><?= $datos_bicicleta['nombre_en']?></h1>
                             <p><?= $datos_bicicleta['descripcion_en']?></p>
-                            <a class="boton" href="categories.php?id=<?=$datos_bicicleta['id']?>">Discover</a>
+                            <button type="button" class="boton"><a href="categories.php?id=<?=$datos_bicicleta['id']?>">Discover</a></button>
                         </div> 
                     </div>
                     </div>
@@ -466,7 +466,7 @@ if($_COOKIE['idioma']=="es"){
             </div><!-- End // .directional_nav -->     
         
             <!-- Aventuras -->
-            <section id="aventuras">
+            <section id="aventuras mt-5">
                 <div class="container mb-5">
                     <div class="row section-titular">
                         <h2 class="col-12">¡Choose your adventure!</h2>
@@ -518,7 +518,7 @@ if($_COOKIE['idioma']=="es"){
             <section id="profesionales">
                 <div class="container">
                     <div class="row">
-                        <h2 class="col-12">Profesionals</h2>
+                        <h2 class="col-12">Profesionales</h2>
                         <div class="separador"></div>
                     </div>            
                 </div>
@@ -528,17 +528,17 @@ if($_COOKIE['idioma']=="es"){
                             <div id="goyo" class="col-md-6 col-12 profesionales-titular">
                                 <h3>Goyo Garrido</h3>
                                 <p class="subtitle">Coordinator</p>
-                                <p>Mi vida deportiva va de la mano de mis distintos trabajos en España y el extranjero, que me han permitido los distintos viajes. <br><br>La bicicleta me ha dado infinitos placeres en la vida, y alguna cicatriz también, pero los mayores no han sido ni mucho menos los mas extremos; la bicicleta híbrida con alforjas me ha enseñado a viajar, y eso, más mi trabajo de guía, me ha permitido conocer buena parte de la geografía nacional e internacional, como Marruecos, Cuba, Italia, Francia, Alemania… <br><br>Gracias a mi pasión por la montaña, he podido titularme en muchos de los ámbitos que amo, soy Tecnico Deportivo de Esquí Alpino, Barranquismo y Escalada, entre otros.</p>
+                                <p>Hello! My name is Goyo and I am a qualified skiing, mountain and canyoning guide originally from the north of Spain. I want to share with you my passion for Andalusian nature, food and culture which is why I offer tours of cultural, gastronomic and outdoor activities in the impressive landscapes of Andalusia. I grew up in Espinama in Cantabria, a village in the heart of the Picos de Europa National Park. From the very beginning, I loved nature and everything you can do in it: walking, riding horses, skiing, etc. which is why I decided to turn my passion into a career.</p>
                                 <div>
-                                    <button class="boton fondo-azul"><a href="about.php">Know us</a></button>
+                                    <button class="boton fondo-azul"><a href="about.php">Conócenos</a></button>
                                 </div>
                             </div>
                             <div id="esmeralda" class="d-none col-md-6  col-12 profesionales-titular">
                                 <h3>Esmeralda</h3>
                                 <p class="subtitle">Coordinator</p>
-                                <p>Me llamo Esmeralda y ofrezco tour culturales en Granada! Trabajo como guía autónoma especializada en tours privados. <br><br>Será un placer enseñarte la belleza de esta ciudad y transportarte a los mágicos tiempos de la Alhambra medieval. Soy una antropóloga italiana experta en interculturalidad que se mudó en Granada  hace más de 16 años. Vine por un intercambio universitario, me enamoré de esta ciudad y nunca me fui de vuelta!. <br><br>Te llevaré mas allá de la belleza de los sitios históricos en un tour que explora la complexidad de esta tierra llena de historia, literatura y filosofía.</p>
+                                <p>Hello! My name is Esmeralda and I am offering Cultural tours in Granada. I am working as a free-lance tour guide, specialising in private tours. It will be my pleasure to show you the beauty of this city and to transport you to the magical time of the medieval Alhambra. I am an Italian anthropology expert in interculturality who moved to Granada more than 16 years ago. I came through a university exchange and fell in love with this gorgeous city and never moved back! My passion was that strong that I studied and undertook a government exam to become a guide and to be able to transmit my enthusiasm and knowledge to many travellers.</p>
                                 <div>
-                                  <a class="boton fondo-azul" href="about.php">Know us</a>
+                                <button type="button" class="boton fondo-azul"><a href="about.php">Conócenos</a></button>
                                 </div>
                             </div>
                             <div class="col-md-6 p-0 col-12 image-block">
@@ -569,7 +569,7 @@ if($_COOKIE['idioma']=="es"){
                                     <a href="tel:+679529844"><i class="fas fa-phone mr-3"></i>679 52 98 44</a>
                                 </div>
                                 <div>
-                                    <a target="_blank" href="https://wa.link/yedscm"><i class="fab fa-whatsapp-square mr-3"></i></i></i>679 52 98 44</a>
+                                    <a target="_blank" href="https://wa.link/yedscm"><i class="fab fa-whatsapp-square mr-3"></i>679 52 98 44</a>
                                 </div>
                                 <div>
                                     <a href="mailto:tobinere@hotmail.com"><i class="far fa-envelope mr-3"></i>tobinere@hotmail.com</a>
@@ -579,12 +579,12 @@ if($_COOKIE['idioma']=="es"){
                         </div>
                         <div class="col-md-6 col-12 formulario">
                             <form action="contacto.php" method="POST">
-                                <input type="text" name="nombre" id="nombre" placeholder="Name">
+                                <input type="text" name="nombre" id="nombre" placeholder="Nombre">
                                 <input type="email" name="email" id="email" placeholder="Email">
-                                <input type="text" name="asunto" id="asunto" placeholder="Affair">
-                                <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Message..."></textarea>
+                                <input type="text" name="asunto" id="asunto" placeholder="Asunto">
+                                <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Mensaje..."></textarea>
                             </form>
-                            <button type="submit" class="boton">Send</button>
+                            <button type="submit" class="boton envio">Send</button>
                         </div>
                     </div>
                 </div>
@@ -690,11 +690,10 @@ if($_COOKIE['idioma']=="es"){
             advance();
         });
         </script>      
-    
+
     </body>
     </html>
     <?php
 }
 $conexion = null;
 ?>
-

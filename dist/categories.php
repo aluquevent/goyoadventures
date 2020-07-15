@@ -40,13 +40,13 @@ if($_COOKIE['idioma']=="es"){
         $conexion = conectarBD();
         
     
-        $consulta_categoria= $conexion -> prepare("SELECT id, nombre, imagen from categoria WHERE id=?");
+        $consulta_categoria= $conexion -> prepare("SELECT id, nombre, descripcion, imagen from categoria WHERE id=?");
         $consulta_categoria -> bindParam(1,$id);
         $consulta_categoria -> setFetchMode(PDO::FETCH_ASSOC);
         $consulta_categoria -> execute();
         $datos_categoria = $consulta_categoria ->fetch();
     
-        $consulta_salida= $conexion -> prepare("SELECT id, titulo, descripcion_corta, imagen, dificultad, localizacion, visible from salida WHERE categoria=?");
+        $consulta_salida= $conexion -> prepare("SELECT id, titulo, descripcion_corta, epoca, imagen, dificultad, localizacion, visible from salida WHERE categoria=?");
         $consulta_salida -> bindParam(1,$id);
         $consulta_salida -> setFetchMode(PDO::FETCH_ASSOC);
         $consulta_salida -> execute();
@@ -65,7 +65,10 @@ if($_COOKIE['idioma']=="es"){
                 </div>            
             </div>
             <div class="container">
-            <div class="row mt-5">            
+            <div class="row mt-2">
+            <div class="descripcion-general fondo-secundario p-5">
+            <p><?= $datos_categoria['descripcion']?></p>
+        </div>              
             <?php
                 while($datos_salida = $consulta_salida -> fetch()){
                 if($datos_salida['visible']==0){
@@ -111,6 +114,7 @@ if($_COOKIE['idioma']=="es"){
                                     } ?>
                             </li>
                             <li class="list-group-item">Localización: <?= $datos_salida['localizacion']?></li>
+                            <li class="list-group-item">Época: <?= $datos_salida['epoca']?></li>
                         </ul>
                         <div class="card-body">
                         <button class="boton"type="button"><a href="token.php?id=<?=$datos_salida['id']?>">Ver ficha</a></button>                    
@@ -157,13 +161,13 @@ if($_COOKIE['idioma']=="es"){
     $conexion = conectarBD();
     
 
-    $consulta_categoria= $conexion -> prepare("SELECT id, nombre_en, imagen from categoria WHERE id=?");
+    $consulta_categoria= $conexion -> prepare("SELECT id, nombre_en, descripcion_en, imagen from categoria WHERE id=?");
     $consulta_categoria -> bindParam(1,$id);
     $consulta_categoria -> setFetchMode(PDO::FETCH_ASSOC);
     $consulta_categoria -> execute();
     $datos_categoria = $consulta_categoria ->fetch();
 
-    $consulta_salida= $conexion -> prepare("SELECT id, titulo, desc_corta_en, imagen, dificultad, localizacion, visible from salida WHERE categoria=?");
+    $consulta_salida= $conexion -> prepare("SELECT id, titulo_en, desc_corta_en, epoca_en, imagen, dificultad, localizacion, visible from salida WHERE categoria=?");
     $consulta_salida -> bindParam(1,$id);
     $consulta_salida -> setFetchMode(PDO::FETCH_ASSOC);
     $consulta_salida -> execute();
@@ -182,7 +186,10 @@ if($_COOKIE['idioma']=="es"){
             </div>            
         </div>
         <div class="container">
-        <div class="row mt-5">            
+        <div class="row mt-2">
+        <div class="descripcion-general fondo-secundario p-5">
+            <p><?= $datos_categoria['descripcion_en']?></p>
+        </div>           
         <?php
             while($datos_salida = $consulta_salida -> fetch()){
             if($datos_salida['visible']==0){
@@ -194,7 +201,7 @@ if($_COOKIE['idioma']=="es"){
                 <div class="card" >
                     <img src="assets/img/salidas/<?= $datos_salida['imagen']?>" class="card-img-top" alt="">
                     <div class="card-body">
-                        <h5 class="card-title"><?=$datos_salida['titulo']?></h5>
+                        <h5 class="card-title"><?=$datos_salida['titulo_en']?></h5>
                         <p class="card-text"><?= $datos_salida['desc_corta_en']?></p>
                     </div>
                     <ul class="list-group list-group-flush">
@@ -228,6 +235,7 @@ if($_COOKIE['idioma']=="es"){
                                 } ?>
                         </li>
                         <li class="list-group-item">Location: <?= $datos_salida['localizacion']?></li>
+                        <li class="list-group-item">Season: <?= $datos_salida['epoca_en']?></li>
                     </ul>
                     <div class="card-body">
                     <button class="boton"type="button"><a href="token.php?id=<?=$datos_salida['id']?>">See more</a></button>                    

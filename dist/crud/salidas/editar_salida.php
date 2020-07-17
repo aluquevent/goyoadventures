@@ -38,6 +38,12 @@ if(!isset($_SESSION['id'])){
         $consulta_dias -> setFetchMode(PDO::FETCH_ASSOC);
         $consulta_dias -> execute();
         $datos_dia = $consulta_dias -> fetch();
+        
+        $consulta_incluye = $conexion -> prepare("SELECT * FROM incluye WHERE id_salida=?");
+        $consulta_incluye -> bindParam(1, $id);
+        $consulta_incluye -> setFetchMode(PDO::FETCH_ASSOC);
+        $consulta_incluye -> execute();
+        $datos_incluye = $consulta_incluye -> fetch();
         ?>
     
         <div class="container">
@@ -201,10 +207,17 @@ if(!isset($_SESSION['id'])){
                         </div>";
 
                     }
+                    for($i=1; $i <= 10; $i++){
+                        echo "<h2>Incluído $i</h2>
+                        <div class='form-group'>
+                            <label for='incluido".$i."'>Incluye español</label>
+                            <input value='".<?= $datos_incluye['incluye'.$i.''] ?>."' type='text' class='form-control' id='incluye$i' name='incluye$i'>
+                            <input value='".<?= $datos_incluye['incluye'.$i.'_en'] ?>."' type='text' class='form-control' id='incluye_en$i' name='incluye_en$i'>
+                        </div>";
+
+                    }
                 ?>
-                <div class='padre'>
-                    
-                </div>
+                
 
                     <br>
                     <div class="form-check">
@@ -376,6 +389,54 @@ if(!isset($_SESSION['id'])){
             $consulta_dias_desc -> bindParam(17, $id);
 
             $consulta_dias_desc -> execute();
+            
+            
+            $consulta_incluye = $conexion -> prepare("UPDATE dias SET incluye1=?, incluye2=?, incluye3=?, incluye4=?, incluye5=?, incluye6=?, incluye7=?, incluye8=?, incluye9=?, incluye10=?, incluye1_en=?, incluye2_en=?, incluye3_en=?, incluye4_en=?, incluye5_en=?, incluye6_en=?, incluye7_en=?, incluye8_en=?, incluye9_en=?, incluye10_en=? WHERE id_salida=?");
+            $incluye1 = $_POST['incluye1'];
+            $incluye2 = $_POST['incluye2'];
+            $incluye3 = $_POST['incluye3'];
+            $incluye4 = $_POST['incluye4'];
+            $incluye5 = $_POST['incluye5'];
+            $incluye6 = $_POST['incluye6'];
+            $incluye7 = $_POST['incluye7'];
+            $incluye8 = $_POST['incluye8'];
+            $incluye9 = $_POST['incluye9'];
+            $incluye10 = $_POST['incluye10'];
+
+            $incluye1_en = $_POST['incluye_en1'];
+            $incluye2_en = $_POST['incluye_en2'];
+            $incluye3_en = $_POST['incluye_en3'];
+            $incluye4_en = $_POST['incluye_en4'];
+            $incluye5_en = $_POST['incluye_en5'];
+            $incluye6_en = $_POST['incluye_en6'];
+            $incluye7_en = $_POST['incluye_en7'];
+            $incluye8_en = $_POST['incluye_en8'];
+            $incluye9_en = $_POST['incluye_en9'];
+            $incluye10_en = $_POST['incluye_en10'];
+
+            $consulta_incluye -> bindParam(1, $incluye1);
+            $consulta_incluye -> bindParam(2, $incluye2);
+            $consulta_incluye -> bindParam(3, $incluye3);
+            $consulta_incluye -> bindParam(4, $incluye4);
+            $consulta_incluye -> bindParam(5, $incluye5);
+            $consulta_incluye -> bindParam(6, $incluye6);
+            $consulta_incluye -> bindParam(7, $incluye7);
+            $consulta_incluye -> bindParam(8, $incluye8);
+            $consulta_incluye -> bindParam(9, $incluye9);
+            $consulta_incluye -> bindParam(10, $incluye10);
+            $consulta_incluye -> bindParam(11, $incluye1_en);
+            $consulta_incluye -> bindParam(12, $incluye2_en);
+            $consulta_incluye -> bindParam(13, $incluye3_en);
+            $consulta_incluye -> bindParam(14, $incluye4_en);
+            $consulta_incluye -> bindParam(15, $incluye5_en);
+            $consulta_incluye -> bindParam(16, $incluye6_en);
+            $consulta_incluye -> bindParam(17, $incluye7_en);
+            $consulta_incluye -> bindParam(18, $incluye8_en);
+            $consulta_incluye -> bindParam(19, $incluye9_en);
+            $consulta_incluye -> bindParam(20, $incluye10_en);
+            $consulta_incluye -> bindParam(21, $id);
+
+            $consulta_incluye -> execute();
 
 
             echo "<meta http-equiv='refresh' content='0; url=salidas.php'>";

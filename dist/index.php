@@ -4,19 +4,25 @@ include 'assets/php/functions.php';
 if (isset($_GET['lang'])){
     if ($_GET['lang']=='en') {        
         setcookie('idioma','en');
-        
+        echo "<meta http-equiv='refresh' content='0; url=index.php'>";
     } elseif ($_GET['lang']=='es'){        
         setcookie('idioma','es');
-        
-        
+        echo "<meta http-equiv='refresh' content='0; url=index.php'>";       
     }
-} else {
-    setcookie("idioma","es");
-}
+}else{
+    if($_COOKIE['idioma']=='es' and isset($_COOKIE['idioma'])){
+        setcookie('idioma','es');
+    }elseif($_COOKIE['idioma']=='en' and isset($_COOKIE['idioma'])){
+        setcookie('idioma','en');
+    }else{
+        setcookie('idioma','es');
+    }    
+} 
 $conexion = conectarBD();
 if($_COOKIE['idioma']=="es"){
     ?>
     <!DOCTYPE html>
+
     <html lang="es">
     <head>
         <meta charset="UTF-8">
@@ -357,11 +363,11 @@ if($_COOKIE['idioma']=="es"){
 } elseif ($_COOKIE['idioma']=="en"){
     ?>
     <!DOCTYPE html>
-    <html lang="es">
+    <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Goyo Adventures | Inicio</title>
+        <title>Goyo Adventures | Home</title>
         
         <?php
         import_css();
@@ -518,7 +524,7 @@ if($_COOKIE['idioma']=="es"){
             <section id="profesionales">
                 <div class="container">
                     <div class="row">
-                        <h2 class="col-12">Profesionales</h2>
+                        <h2 class="col-12">Profesionals</h2>
                         <div class="separador"></div>
                     </div>            
                 </div>
@@ -579,10 +585,10 @@ if($_COOKIE['idioma']=="es"){
                         </div>
                         <div class="col-md-6 col-12 formulario">
                             <form action="contacto.php" method="POST">
-                                <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+                                <input type="text" name="nombre" id="nombre" placeholder="Name">
                                 <input type="email" name="email" id="email" placeholder="Email">
-                                <input type="text" name="asunto" id="asunto" placeholder="Asunto">
-                                <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Mensaje..."></textarea>
+                                <input type="text" name="asunto" id="asunto" placeholder="Subject">
+                                <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Message..."></textarea>
                             </form>
                             <button type="submit" class="boton envio">Send</button>
                         </div>

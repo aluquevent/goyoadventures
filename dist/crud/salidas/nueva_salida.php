@@ -409,36 +409,43 @@ include '../../assets/php/functions.php';
 
         $actualizacion_incluye = $conexion -> prepare("UPDATE incluye SET incluye1=?, incluye2=?, incluye3=?, incluye4=?, incluye5=?, incluye6=?, incluye7=?, incluye8=?, incluye9=?, incluye10=?, incluye1_en=?, incluye2_en=?, incluye3_en=?, incluye4_en=?, incluye5_en=?, incluye6_en=?, incluye7_en=?, incluye8_en=?, incluye9_en=?, incluye10_en=? WHERE id_salida=?");
         $incluye_vacio="";
-        $j=1;
-        for($i=1;$i<=20;$i++){
-            if($i<=10){
-                if(isset($_POST['incluye'.$i]) && !empty($_POST['incluye'.$i])){
-                    $actualizacion_incluye -> bindParam($i, $_POST['incluye'.$i]);
-                }else{
-                    $actualizacion_incluye -> bindParam($i, $incluye_vacio);
-                }
+        for($i=1;$i<=10;$i++){
+ 
+            if(isset($_POST['incluye'.$i]) && !empty($_POST['incluye'.$i])){
+                $actualizacion_incluye -> bindParam($i, $_POST['incluye'.$i]);
             }else{
-                
-                if(isset($_POST['incluye_en'.$i]) && !empty($_POST['incluye_en'.$j])){
-                    $actualizacion_incluye -> bindParam($i, $_POST['incluye_en'.$j]);
-                }else{
-                    $actualizacion_incluye -> bindParam($i, $incluye_vacio);
-                }
-                $j++;
-            }              
+                $actualizacion_incluye -> bindParam($i, $incluye_vacio);
+            }            
+            
         }
-
-        $actualizacion_incluye -> bindParam (21, $id_salida);
+        $actualizacion_incluye -> bindParam (11, $id_salida);
         $actualizacion_incluye -> execute();
+
+        $actualizacion_incluye_en = $conexion -> prepare("UPDATE incluye SET incluye1_en=?, incluye2_en=?, incluye3_en=?, incluye4_en=?, incluye5_en=?, incluye6_en=?, incluye7_en=?, incluye8_en=?, incluye9_en=?, incluye10_en=? WHERE id_salida=?");
+        $incluye_vacio="";
+      
+        for($i=1;$i<=10;$i++){
+               
+                if(isset($_POST['incluye_en'.$i]) && !empty($_POST['incluye_en'.$i])){
+                    $actualizacion_incluye_en -> bindParam($i, $_POST['incluye_en'.$i]);
+                }else{
+                    $actualizacion_incluye_en -> bindParam($i, $incluye_vacio);
+                }
+   
+                          
+        }
+        $actualizacion_incluye_en -> bindParam (11, $id_salida);
+        $actualizacion_incluye_en -> execute();
 
         echo "<meta http-equiv='refresh' content='0; url=salidas.php'>";
 
-    }
+    
     $conexion = null;
+    }
     ?>
 
 </body>
 </html>
 <?php
-// }
+
 ?>

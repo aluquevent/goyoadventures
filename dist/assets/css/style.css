@@ -1591,6 +1591,35 @@ section#profesionales div div div p {
   padding: 20px;
 }
 
+.card {
+  max-height: 700px;
+}
+
+.card img {
+  height: 250px;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.card .overflow {
+  height: 500px;
+  overflow-y: scroll;
+}
+
+.card .overflow::-webkit-scrollbar {
+  position: absolute;
+  z-index: 1000;
+  width: 4px;
+  padding-top: 75px;
+  height: 500px;
+}
+
+.card .overflow::-webkit-scrollbar-thumb {
+  background-color: #C58911;
+  padding-top: inherit;
+  border-radius: 10px;
+}
+
 .sidebar {
   padding: 20px;
   background-color: #E1DEE3;

@@ -77,11 +77,11 @@ if($_COOKIE['idioma']=="es"){
                 ?>
                 <div class="col-md-4 col-12 p-2">         
                 
-                    <div class="card" >
+                    <div class="card">
                         <img src="assets/img/salidas/<?= $datos_salida['imagen']?>" class="card-img-top" alt="">
-                        <div class="card-body">
+                        <div class="card-body overflow">
                             <h5 class="card-title"><?=$datos_salida['titulo']?></h5>
-                            <p class="card-text"><?= $datos_salida['descripcion_corta']?></p>
+                            <p class="card-text "><?= $datos_salida['descripcion_corta']?></p>
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Dificultad:<?php 

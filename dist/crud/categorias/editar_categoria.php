@@ -22,6 +22,7 @@ if(!isset($_SESSION['id'])){
 </head>
 <body>
     <?php
+    menu_crud();
     if(!isset($_GET['id'])){
         echo "<meta http-equiv='refresh' content='0; url=categorias.php'>";
     } else {

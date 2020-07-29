@@ -1,6 +1,5 @@
 <?php
-$page='home';
-include 'assets/php/functions.php';
+
 if (isset($_GET['lang'])){
     if ($_GET['lang']=='en') {        
         setcookie('idioma','en');
@@ -10,16 +9,18 @@ if (isset($_GET['lang'])){
         echo "<meta http-equiv='refresh' content='0; url=index.php'>";       
     }
 }else{
-    if($_COOKIE['idioma']=='es' and isset($_COOKIE['idioma'])){
+    if(!isset($_COOKIE['idioma'])){
+        setcookie('idioma','es');
+    }elseif($_COOKIE['idioma']=='es' and isset($_COOKIE['idioma'])){
         setcookie('idioma','es');
     }elseif($_COOKIE['idioma']=='en' and isset($_COOKIE['idioma'])){
         setcookie('idioma','en');
-    }else{
-        setcookie('idioma','es');
-    }    
-} 
+    }
+}
+$page='home';
+include 'assets/php/functions.php';
 $conexion = conectarBD();
-if($_COOKIE['idioma']=="es"){
+if($_COOKIE['idioma']=="es" or !isset($_COOKIE['idioma'])){
     ?>
     <!DOCTYPE html>
 
@@ -33,7 +34,7 @@ if($_COOKIE['idioma']=="es"){
         import_css();
         import_js_head();    
         ?>
-        <script type="text/javascript" src="assets/js/app.js"></script>
+        <!-- <script type="text/javascript" src="assets/js/app.js"></script> -->
     
     </head>
         
@@ -194,25 +195,19 @@ if($_COOKIE['idioma']=="es"){
                             <div id="goyo" class="col-md-6 col-12 profesionales-titular">
                                 <h3>Goyo Garrido</h3>
                                 <p class="subtitle">Coordinador</p>
+                                <img class="imagen-perfil" src="assets/img/goyo.jpg" alt="">
+        
                                 <p>Mi vida deportiva va de la mano de mis distintos trabajos en España y el extranjero, que me han permitido los distintos viajes. <br><br>La bicicleta me ha dado infinitos placeres en la vida, y alguna cicatriz también, pero los mayores no han sido ni mucho menos los mas extremos; la bicicleta híbrida con alforjas me ha enseñado a viajar, y eso, más mi trabajo de guía, me ha permitido conocer buena parte de la geografía nacional e internacional, como Marruecos, Cuba, Italia, Francia, Alemania… <br><br>Gracias a mi pasión por la montaña, he podido titularme en muchos de los ámbitos que amo, soy Tecnico Deportivo de Esquí Alpino, Barranquismo y Escalada, entre otros.</p>
-                                <div>
-                                    <button class="boton fondo-azul"><a href="about.php">Conócenos</a></button>
-                                </div>
+
                             </div>
-                            <div id="esmeralda" class="d-none col-md-6  col-12 profesionales-titular">
+                            <div id="esmeralda" class="col-md-6  col-12 profesionales-titular">
                                 <h3>Esmeralda</h3>
                                 <p class="subtitle">Coordinadora</p>
+                                <img class="imagen-perfil" src="assets/img/esmeralda.jpg" alt="">
+
                                 <p>Me llamo Esmeralda y ofrezco tour culturales en Granada! Trabajo como guía autónoma especializada en tours privados. <br><br>Será un placer enseñarte la belleza de esta ciudad y transportarte a los mágicos tiempos de la Alhambra medieval. Soy una antropóloga italiana experta en interculturalidad que se mudó en Granada  hace más de 16 años. Vine por un intercambio universitario, me enamoré de esta ciudad y nunca me fui de vuelta!. <br><br>Te llevaré mas allá de la belleza de los sitios históricos en un tour que explora la complexidad de esta tierra llena de historia, literatura y filosofía.</p>
                                 <div>
                                 <button type="button" class="boton fondo-azul"><a href="about.php">Conócenos</a></button>
-                                </div>
-                            </div>
-                            <div class="col-md-6 p-0 col-12 image-block">
-                                <div id="goyo-img" class="imagen-perfil" style="background: url(assets/img/goyo.jpg) center center; background-size: cover;">
-                                    
-                                </div>
-                                <div id="esmeralda-img" class="imagen-perfil" style="background: url(assets/img/esmeralda.jpg) center center; background-size: cover;">
-                                    
                                 </div>
                             </div>
                         </div>                
@@ -244,13 +239,13 @@ if($_COOKIE['idioma']=="es"){
                             
                         </div>
                         <div class="col-md-6 col-12 formulario">
-                            <form action="contacto.php" method="POST">
+                            <form action="mail.php" method="POST">
                                 <input type="text" name="nombre" id="nombre" placeholder="Nombre">
                                 <input type="email" name="email" id="email" placeholder="Email">
                                 <input type="text" name="asunto" id="asunto" placeholder="Asunto">
                                 <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Mensaje..."></textarea>
                             </form>
-                            <button type="submit" class="boton envio">Enviar</button>
+                            <button type="submit" name="envio_form" class="boton envio">Enviar</button>
                         </div>
                     </div>
                 </div>
@@ -584,13 +579,13 @@ if($_COOKIE['idioma']=="es"){
                             
                         </div>
                         <div class="col-md-6 col-12 formulario">
-                            <form action="contacto.php" method="POST">
+                            <form action="mail.php" method="POST">
                                 <input type="text" name="nombre" id="nombre" placeholder="Name">
                                 <input type="email" name="email" id="email" placeholder="Email">
                                 <input type="text" name="asunto" id="asunto" placeholder="Subject">
                                 <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Message..."></textarea>
                             </form>
-                            <button type="submit" class="boton envio">Send</button>
+                            <button type="submit" name="envio_form" class="boton envio">Send</button>
                         </div>
                     </div>
                 </div>

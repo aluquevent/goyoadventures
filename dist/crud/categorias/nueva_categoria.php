@@ -21,7 +21,7 @@ if(!isset($_SESSION['id'])){
 </head>
 <body>
     <?php
-
+    menu_crud();
     $conexion = conectarBD();
     ?>
 

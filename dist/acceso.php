@@ -24,7 +24,7 @@ $conexion = conectarBD();
                 <input type="text" name="usuario" id="usuario">
                 <label for="pass">Contraseña</label>
                 <input type="password" name="pass" id="pass">
-                <button type="submit" class="boton" name="acceso">Iniciar sesión</button>
+                <button type="submit" class="boton" name="acceso"><a>Iniciar sesión</a></button>
             </form>
             </div>
         </div>

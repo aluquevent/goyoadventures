@@ -1824,6 +1824,15 @@ footer#footer .contacto-footer a {
   margin: 10px 0 20px 0;
 }
 
+@media only screen and (max-width: 1366px) {
+  .slider-content h1 {
+    font-size: 3rem;
+  }
+  .slider-content p {
+    font-size: 16px;
+  }
+}
+
 .slide:first-child {
   display: flex;
   flex-direction: column;

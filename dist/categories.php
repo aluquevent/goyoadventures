@@ -17,6 +17,12 @@ switch ($id) {
     case 5:
         $page='bicicleta';
         break;    
+    case 6:
+        $page='esqui';
+        break;    
+    case 7:
+        $page='cultural';
+        break;    
 
 }
 if($_COOKIE['idioma']=="es"){

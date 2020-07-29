@@ -15,13 +15,16 @@ if(!isset($_SESSION['id'])){
 
     import_css_crud();
     import_js_head();
+    
 
     ?>
     <script src="../../assets/js/dias.js"></script>
     <script src='../../assets/js/bootstrap.min.js'></script>
 </head>
 <body>
+    
     <?php
+    menu_crud();
     if(!isset($_GET['id'])){
         echo "<meta http-equiv='refresh' content='0; url=salidas.php'>";
     } else {
@@ -210,9 +213,10 @@ if(!isset($_SESSION['id'])){
                     for($i=1; $i <= 10; $i++){
                         echo "<h2>Incluído $i</h2>
                         <div class='form-group'>
-                            <label for='incluido".$i."'>Incluye español</label>
-                            <input value='".<?= $datos_incluye['incluye'.$i.''] ?>."' type='text' class='form-control' id='incluye$i' name='incluye$i'>
-                            <input value='".<?= $datos_incluye['incluye'.$i.'_en'] ?>."' type='text' class='form-control' id='incluye_en$i' name='incluye_en$i'>
+                            <label for='incluido".$i."'>Incluye</label>
+                            <input value='".$datos_incluye['incluye'.$i.'']."' type='text' class='form-control' id='incluye$i' name='incluye$i'>
+                            <label for='incluido".$i."_en'>Incluye inglés</label>
+                            <input value='".$datos_incluye['incluye'.$i.'_en']."' type='text' class='form-control' id='incluye_en$i' name='incluye_en$i'>
                         </div>";
 
                     }
@@ -390,8 +394,59 @@ if(!isset($_SESSION['id'])){
 
             $consulta_dias_desc -> execute();
             
+            $num_filas = $consulta_incluye -> rowCount();
+            if($num_filas==0){
+                $consulta_incluye = $conexion -> prepare("INSERT incluye VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                $id_salida_incluye=$id;
+                $incluye1 = "";
+                $incluye2 = "";
+                $incluye3 = "";
+                $incluye4 = "";
+                $incluye5 = "";
+                $incluye6 = "";
+                $incluye7 = "";
+                $incluye8 = "";
+                $incluye9 = "";
+                $incluye10 = "";
+    
+                $incluye1_en = "";
+                $incluye2_en = "";
+                $incluye3_en = "";
+                $incluye4_en = "";
+                $incluye5_en = "";
+                $incluye6_en = "";
+                $incluye7_en = "";
+                $incluye8_en = "";
+                $incluye9_en = "";
+                $incluye10_en = "";
+
+                $consulta_incluye -> bindParam(1, $id);
+                $consulta_incluye -> bindParam(2, $incluye1);
+                $consulta_incluye -> bindParam(3, $incluye2);
+                $consulta_incluye -> bindParam(4, $incluye3);
+                $consulta_incluye -> bindParam(5, $incluye4);
+                $consulta_incluye -> bindParam(6, $incluye5);
+                $consulta_incluye -> bindParam(7, $incluye6);
+                $consulta_incluye -> bindParam(8, $incluye7);
+                $consulta_incluye -> bindParam(9, $incluye8);
+                $consulta_incluye -> bindParam(10, $incluye9);
+                $consulta_incluye -> bindParam(11, $incluye10);
+                $consulta_incluye -> bindParam(12, $incluye1_en);
+                $consulta_incluye -> bindParam(13, $incluye2_en);
+                $consulta_incluye -> bindParam(14, $incluye3_en);
+                $consulta_incluye -> bindParam(15, $incluye4_en);
+                $consulta_incluye -> bindParam(16, $incluye5_en);
+                $consulta_incluye -> bindParam(17, $incluye6_en);
+                $consulta_incluye -> bindParam(18, $incluye7_en);
+                $consulta_incluye -> bindParam(19, $incluye8_en);
+                $consulta_incluye -> bindParam(20, $incluye9_en);
+                $consulta_incluye -> bindParam(21, $incluye10_en);
+                
+    
+                $consulta_incluye -> execute();
+            }
             
-            $consulta_incluye = $conexion -> prepare("UPDATE dias SET incluye1=?, incluye2=?, incluye3=?, incluye4=?, incluye5=?, incluye6=?, incluye7=?, incluye8=?, incluye9=?, incluye10=?, incluye1_en=?, incluye2_en=?, incluye3_en=?, incluye4_en=?, incluye5_en=?, incluye6_en=?, incluye7_en=?, incluye8_en=?, incluye9_en=?, incluye10_en=? WHERE id_salida=?");
+            $consulta_incluye = $conexion -> prepare("UPDATE incluye SET incluye1=?, incluye2=?, incluye3=?, incluye4=?, incluye5=?, incluye6=?, incluye7=?, incluye8=?, incluye9=?, incluye10=?, incluye1_en=?, incluye2_en=?, incluye3_en=?, incluye4_en=?, incluye5_en=?, incluye6_en=?, incluye7_en=?, incluye8_en=?, incluye9_en=?, incluye10_en=? WHERE id_salida=?");
             $incluye1 = $_POST['incluye1'];
             $incluye2 = $_POST['incluye2'];
             $incluye3 = $_POST['incluye3'];

@@ -27,11 +27,34 @@ function menu($page){
     $consulta_bicicleta -> execute();
     $datos_bicicleta = $consulta_bicicleta ->fetch();
 
+    $consulta_esqui= $conexion -> prepare("SELECT id from categoria WHERE id=6");
+    $consulta_esqui -> setFetchMode(PDO::FETCH_ASSOC);
+    $consulta_esqui -> execute();
+    $datos_esqui = $consulta_esqui ->fetch();
+    
+    $consulta_cultural= $conexion -> prepare("SELECT id from categoria WHERE id=7");
+    $consulta_cultural -> setFetchMode(PDO::FETCH_ASSOC);
+    $consulta_cultural -> execute();
+    $datos_cultural = $consulta_cultural ->fetch();
+
     ?>
     <header id="header" class="menu">
         <!-- Nav -->
-        <nav class="navbar navbar-expand-xl navbar-dark">
-            <a class="navbar-brand logo logo-light"  href="index.php"><span>Goyo</span>Garrido Adventures</a>            
+        <div class="top-bar d-flex justify-content-around align-items-center fondo-azulOsc">
+            <a class="navbar-brand logo logo-light w-60"  href="index.php"><span>Goyo</span>Garrido Adventures</a>
+            <div class="d-flex justify-content-around align-items-center">
+                <a target="_blank" style="color:green; font-size:16px;" href="https://wa.link/yedscm"><i class="fab fa-whatsapp mr-3"></i></a>
+
+                <div class="d-flex m-0 p-2 ml-3 align-items-center">
+                    <a class="" href="index.php?lang=es"><img src="assets/img/spain-flag.png"></a>
+                    <p class="">|</p>
+                    <a class="" href="index.php?lang=en"><img src="assets/img/uk-flag.png"></a>                              
+                </div> 
+            </div>
+            
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+                        
             <button style="color:white;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -52,9 +75,20 @@ function menu($page){
                 <li class="nav-item">
                     <a class="nav-link <?php if($page=='senderismo'){ echo 'active';} ?>" href="categories.php?id=<?=$datos_senderismo['id']?>">Senderismo</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link <?php if($page=='esqui'){ echo 'active';} ?>" href="categories.php?id=<?=$datos_esqui['id']?>">Esquí</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <?php if($page=='cultural'){ echo 'active';} ?>" href="categories.php?id=<?=$datos_cultural['id']?>">Rutas culturales</a>
+                </li>
                 <li class="mr-5 nav-item">
                     <a class="nav-link <?php if($page=='about'){ echo 'active';} ?>" href="about.php">Sobre nosotros</a>                    
                 </li>
+                <li class="mr-5 nav-item">
+                    <button class="boton"><a class="contacto-enlace" href="contact.php">Contacto</a></button>                 
+                </li>
+
+                
                 <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Dropdown link
@@ -65,14 +99,7 @@ function menu($page){
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li> -->
-                <li class="nav-item">
-                <button class="boton"><a class="contacto-enlace" href="contact.php">Contacto</a></button>
-                </li>
-                <li class="nav-item d-flex m-0 p-2 ml-3 align-items-center">
-                    <a class="nav-link m-0 p-0 mr-2" href="index.php?lang=es">ES</a>
-                    <p class="nav-link m-0 p-0">|</p>
-                    <a class="nav-link m-0 p-0 ml-2" href="index.php?lang=en">EN</a>                              
-                </li>              
+             
                     
                 </ul>
                 
@@ -109,12 +136,34 @@ function menu_en($page){
     $consulta_bicicleta -> setFetchMode(PDO::FETCH_ASSOC);
     $consulta_bicicleta -> execute();
     $datos_bicicleta = $consulta_bicicleta ->fetch();
+    
+    $consulta_esqui= $conexion -> prepare("SELECT id from categoria WHERE id=6");
+    $consulta_esqui -> setFetchMode(PDO::FETCH_ASSOC);
+    $consulta_esqui -> execute();
+    $datos_esqui = $consulta_esqui ->fetch();
+    
+    $consulta_cultural= $conexion -> prepare("SELECT id from categoria WHERE id=7");
+    $consulta_cultural -> setFetchMode(PDO::FETCH_ASSOC);
+    $consulta_cultural -> execute();
+    $datos_cultural = $consulta_cultural ->fetch();
 
     ?>
     <header id="header" class="menu">
+    <div class="top-bar d-flex justify-content-around align-items-center fondo-azulOsc">
+            <a class="navbar-brand logo logo-light w-60"  href="index.php"><span>Goyo</span>Garrido Adventures</a>
+            <div class="d-flex justify-content-around align-items-center">
+                <a target="_blank" style="color:green; font-size:16px;" href="https://wa.link/yedscm"><i class="fab fa-whatsapp mr-3"></i></a>
+
+                <div class="d-flex m-0 p-2 ml-3 align-items-center">
+                    <a class="" href="index.php?lang=es"><img src="assets/img/spain-flag.png"></a>
+                    <p class="">|</p>
+                    <a class="" href="index.php?lang=en"><img src="assets/img/uk-flag.png"></a>                              
+                </div> 
+            </div>
+            
+        </div>
         <!-- Nav -->
-        <nav class="navbar navbar-expand-xl navbar-dark">
-            <a class="navbar-brand logo logo-light"  href="index.php"><span>Goyo</span>Garrido Adventures</a>            
+        <nav class="navbar navbar-expand-xl navbar-dark">            
             <button style="color:white;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -135,6 +184,12 @@ function menu_en($page){
                 <li class="nav-item">
                     <a class="nav-link <?php if($page=='senderismo'){ echo 'active';} ?>" href="categories.php?id=<?=$datos_senderismo['id']?>">Hiking</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link <?php if($page=='esqui'){ echo 'active';} ?>" href="categories.php?id=<?=$datos_esqui['id']?>">Skiing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <?php if($page=='cultural'){ echo 'active';} ?>" href="categories.php?id=<?=$datos_cultural['id']?>">Cultural routes</a>
+                </li>
                 <li class="mr-5 nav-item">
                     <a class="nav-link <?php if($page=='about'){ echo 'active';} ?>" href="about.php">About us</a>                    
                 </li>
@@ -151,11 +206,7 @@ function menu_en($page){
                 <li class="nav-item">
                 <button class="boton"><a class="contacto-enlace" href="contact.php">Contact</a></button>
                 </li>
-                <li class="nav-item d-flex m-0 p-2 ml-3 align-items-center">
-                    <a class="nav-link m-0 p-0 mr-2" href="index.php?lang=es">ES</a>
-                    <p class="nav-link m-0 p-0">|</p>
-                    <a class="nav-link m-0 p-0 ml-2" href="index.php?lang=en">EN</a>                              
-                </li>              
+                     
                     
                 </ul>
                 
@@ -276,10 +327,10 @@ function footer_en(){
 function conectarBD(){
     // ESTABLECER CONEXIÓN A LA BASE DE DATOS PDO
     $usuario="root";
-    $contrasena="";
+    $contrasena="root";
     try{
         $mbd = new PDO(
-            'mysql:host=localhost;dbname=goyogarrido',
+            'mysql:host=localhost;dbname=dbs562319',
             $usuario,
             $contrasena,
             array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
@@ -297,7 +348,7 @@ function import_js(){
 
 function import_css(){
     echo "<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,400;1,700&display=swap'><link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css integrity=sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk crossorigin=anonymous>
-    <link rel=stylesheet href=assets/css/style.css>
+    <link rel=stylesheet href=assets/css/style.min.css>
     <script src='https://kit.fontawesome.com/0c2b6b3736.js' crossorigin='anonymous'></script>";
 }
 
@@ -308,9 +359,9 @@ function import_js_head(){
 
 function import_css_crud(){
     echo "<link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css integrity=sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk crossorigin=anonymous>
-    <link rel=stylesheet href=assets/css/style.css>
+
     <script src='https://kit.fontawesome.com/0c2b6b3736.js' crossorigin='anonymous'></script>
-    <link rel='stylesheet' href='../../assets/css/style.css'>
+    <link rel='stylesheet' href='../../assets/css/style.min.css'>
     <link href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,400;1,700&display=swap' rel='stylesheet'>";
 }
 
@@ -328,10 +379,39 @@ return $extension;
 
 function menu_crud(){
     ?>
+    <header id="header" class="menu">
+        <div class="top-bar d-flex justify-content-around align-items-center fondo-azulOsc">
+            <a class="navbar-brand logo logo-light w-60"  href="../categorias/categorias.php"><span>Goyo</span>Garrido Adventures</a>      
+            <button class="boton mt-1"><a href="../../index.php">Volver a la Home</a></button>
+        </div>
+        <!-- Nav -->
+        <nav class="navbar navbar-expand-xl navbar-dark">            
+            <button style="color:white;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="w-100 navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="../salidas/salidas.php">Salidas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../categorias/categorias.php">Categorias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../colaboradores/colaboradores.php">Colaboradores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../pagina/pagina.php">Elementos de la página</a>
+                </li>          
+                </ul>   
+            </div>                
+        </nav>
+        
+    </header>
     <header class="mb-5">
         <!-- Nav -->
         <div class="navbar navbar-expand-lg">
-            <h1 class="ml-5"><a class="logo logo-light"  href="index.php"><span>Goyo</span><span style="color: yellow;">Garrido</span>Adventures</a></h1>   
+            <h1 class="ml-5"><a class="logo logo-light"  href="../categorias/categorias.php"><span>Goyo</span><span style="color: yellow;">Garrido</span>Adventures</a></h1>   
             <div class="container pl-0">            
                 <div class="row w-50 ml-0">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

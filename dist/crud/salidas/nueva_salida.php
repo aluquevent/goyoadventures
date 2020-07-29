@@ -23,7 +23,7 @@ include '../../assets/php/functions.php';
 </head>
 <body>
     <?php
-
+    menu_crud();
     $conexion = conectarBD();
     ?>
 
